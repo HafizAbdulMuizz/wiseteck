@@ -1,98 +1,46 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { 
+  Rocket, 
+  Lightbulb, 
+  FolderGit2, 
+  Briefcase, 
+  TrendingUp, 
+  CheckCircle2, 
+  Sparkles,
+  ArrowRight,
+  Globe,
+  Building2,
+  Layers
+} from "lucide-react";
 
 /**
- * Section 4 — From Learning to Earning Model
+ * Section 4 — From Learning to Earning Model (v3 Master Architecture)
  *
- * LOCKED 9-STAGE SEQUENCE (from approved Profile document — do NOT merge with Section 3):
- * Education → Skills Training → Practical Projects → Portfolio Development →
- * Internships → Freelancing → Employment → Entrepreneurship → Financial Independence
+ * EXACT 5-STAGE MACRO PROGRESSION:
+ * 1. WISE Tech — Applied Skills & Innovation Ecosystem (opening anchor)
+ * 2. Innovation & Incubation — Idea Development · Mentorship · Prototype to Product · Startup Support (One wide featured block)
+ * 3. Practical Experience — Three parallel tracks:
+ *    • Portfolio (Build & showcase your work)
+ *    • Internship (Gain workplace exposure)
+ *    • Client Projects (Work on real client projects)
+ * 4. Career Pathways — Three parallel outcomes:
+ *    • Jobs (Get hired by top companies)
+ *    • Freelancing (Work with global clients)
+ *    • Business (Start & grow your own venture)
+ * 5. Economic Independence — Empowered Skills. Meaningful Work. Sustainable Income. (closing outcome)
  *
- * This is a SEPARATE sequence from the Ecosystem journey in Section 3.
- * "Portfolio Development" belongs HERE and is required.
- * "Financial Independence" belongs HERE and is required.
+ * EXPLICITLY CANCELLED:
+ * - Skill Academy (Omitted)
+ * - Industry & Projects (Omitted)
+ * - Further Education (Omitted)
+ *
+ * TERMINOLOGY LOCKED:
+ * - "Jobs" (not Employment)
+ * - "Business" (not Entrepreneurship)
+ * - "Economic Independence" (not Financial Independence)
  */
-
-const STAGES = [
-  {
-    id: 1,
-    label: "Education",
-    sub: "Academic Foundation",
-    detail: "ICS, ADP, and formal computational curriculum at WISE Educational Hub.",
-    phase: "foundation",
-  },
-  {
-    id: 2,
-    label: "Skills Training",
-    sub: "Industry Certification",
-    detail: "NAVTTC-accredited technical programs in software, data, design, and digital trades.",
-    phase: "foundation",
-  },
-  {
-    id: 3,
-    label: "Practical Projects",
-    sub: "Hands-on Sprints",
-    detail: "Building real production software from the first day inside WISE-Teck incubation labs.",
-    phase: "incubation",
-  },
-  {
-    id: 4,
-    label: "Portfolio Development",
-    sub: "Verified Work History",
-    detail: "Curated GitHub repositories, case studies, and client deliverables that prove commercial capability.",
-    phase: "incubation",
-  },
-  {
-    id: 5,
-    label: "Internships",
-    sub: "Supervised Teams",
-    detail: "Real team workflow, Agile sprints, code reviews, and professional accountability under senior leads.",
-    phase: "incubation",
-  },
-  {
-    id: 6,
-    label: "Freelancing",
-    sub: "Independent Earning",
-    detail: "Direct client acquisition, proposal writing, and high-ticket project delivery on global platforms.",
-    phase: "earning",
-  },
-  {
-    id: 7,
-    label: "Employment",
-    sub: "Industry Placement",
-    detail: "Structured placement into software houses and enterprise technology companies nationally and internationally.",
-    phase: "earning",
-  },
-  {
-    id: 8,
-    label: "Entrepreneurship",
-    sub: "Startup & Ventures",
-    detail: "Founding technology ventures, product companies, and commercial digital agencies backed by real skills.",
-    phase: "earning",
-  },
-  {
-    id: 9,
-    label: "Financial Independence",
-    sub: "The Ultimate Outcome",
-    detail: "Sustainable income, professional credibility, and the autonomy to build, work, or lead on your own terms.",
-    phase: "outcome",
-  },
-];
-
-const PHASE_COLORS = {
-  foundation: { bg: "bg-[#0B1F3A]", border: "border-[#0B1F3A]", text: "text-white" },
-  incubation: { bg: "bg-[#5F2DEE]", border: "border-[#5F2DEE]", text: "text-white" },
-  earning: { bg: "bg-[#0B1F3A]/80", border: "border-[#0B1F3A]", text: "text-white" },
-  outcome: { bg: "bg-[#FFB347]", border: "border-[#FFB347]", text: "text-[#0B1F3A]" },
-};
-
-const PHASE_LABELS = {
-  foundation: "Foundation",
-  incubation: "WISE-Teck Incubation",
-  earning: "Earning",
-  outcome: "Outcome",
-};
 
 export default function LearningToEarningSection() {
   const sectionRef = useRef(null);
@@ -104,192 +52,369 @@ export default function LearningToEarningSection() {
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true);
-          STAGES.forEach((_, i) => {
-            setTimeout(() => setRevealed(i + 1), i * 220 + 300);
-          });
+          // Progressive reveal of the 5 macro stages
+          for (let i = 1; i <= 5; i++) {
+            setTimeout(() => {
+              setRevealed(i);
+            }, i * 220);
+          }
         }
       },
-      { threshold: 0.18 }
+      { threshold: 0.15 }
     );
-    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
     return () => observer.disconnect();
   }, [hasAnimated]);
 
   return (
-    <section
-      id="model"
-      ref={sectionRef}
-      className="section-padding bg-white border-b border-[#E2E8F0]"
+    <section 
+      id="model" 
+      ref={sectionRef} 
+      className="section-padding bg-white border-b border-[#E2E8F0] relative overflow-hidden"
     >
       <div className="site-container">
-
-        {/* Section header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E2E8F0] bg-[#F8FAFC] mb-6">
+        
+        {/* Section Header */}
+        <div className="max-w-3xl mb-16 lg:mb-20">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E2E8F0] bg-[#F8FAFC] mb-6 shadow-2xs">
             <span className="w-2 h-2 rounded-full bg-[#5F2DEE] shrink-0" />
             <span className="text-[11px] font-bold uppercase tracking-widest text-[#0B1F3A]">
-              Section 4 · Core Methodology
+              Section 4 · Core Transformation Methodology
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#0B1F3A] leading-tight mb-4">
-            From Learning to Earning
+          <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-[#0B1F3A] leading-tight mb-4 [text-wrap:balance]">
+            From Learning to Earning Model
           </h2>
-          <p className="text-lg text-[#4F5B6A] leading-relaxed max-w-[52ch]">
-            Our nine-stage progression framework — the structured path from academic intake to financial independence through employment, freelancing, and entrepreneurship.
+          <p className="text-base sm:text-lg text-[#4F5B6A] leading-relaxed max-w-[54ch]">
+            A structured, multi-stage progression moving learners from applied technical skills through incubation, verified portfolios, and client execution directly into Economic Independence.
           </p>
         </div>
 
-        {/* ── Desktop: large horizontal timeline (scroll-animated, non-looping) ── */}
-        <div className="hidden lg:block">
-          {/* Phase legend */}
-          <div className="flex flex-wrap gap-4 mb-8">
-            {Object.entries(PHASE_LABELS).map(([key, label]) => {
-              const col = PHASE_COLORS[key];
-              return (
-                <div key={key} className="flex items-center gap-2">
-                  <div className={`w-3 h-3 rounded-full ${col.bg}`} />
-                  <span className="text-xs font-semibold text-[#4F5B6A]">{label}</span>
+        {/* ========================================================================= */}
+        {/* 5-STAGE LARGE-SCALE PROGRESSION (Spacious Editorial Flow — No Dense Dots) */}
+        {/* ========================================================================= */}
+        <div className="space-y-8 lg:space-y-10 max-w-5xl mx-auto">
+          
+          {/* ────────────────────────────────────────────────────────── */}
+          {/* STAGE 1: Opening Anchor — WISE Tech                        */}
+          {/* ────────────────────────────────────────────────────────── */}
+          <div 
+            className={`transition-all duration-700 ease-out bg-[#F8FAFC] border rounded-3xl p-8 sm:p-10 lg:p-12 ${
+              revealed >= 1 
+                ? "border-[#CBD5E1] shadow-xs translate-y-0 opacity-100" 
+                : "border-[#E2E8F0] translate-y-4 opacity-50"
+            }`}
+          >
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="flex items-start gap-5 sm:gap-6">
+                <div className="w-14 h-14 rounded-2xl bg-[#0B1F3A] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-xs">
+                  01
                 </div>
-              );
-            })}
-          </div>
-
-          {/* Stage track */}
-          <div className="relative">
-            {/* Base track line */}
-            <div className="absolute top-5 left-5 right-5 h-[3px] bg-[#E2E8F0] rounded-full z-0" />
-            {/* Animated progress fill */}
-            <div
-              className="absolute top-5 left-5 h-[3px] rounded-full z-0 transition-all duration-300 ease-out"
-              style={{
-                width: revealed === 0 ? "0%" : `${((revealed - 1) / (STAGES.length - 1)) * 100}%`,
-                background: "linear-gradient(90deg, #0B1F3A 0%, #5F2DEE 55%, #FFB347 100%)",
-              }}
-            />
-
-            {/* Nodes */}
-            <div className="relative z-10 grid grid-cols-9 gap-2">
-              {STAGES.map((stage) => {
-                const isActive = revealed >= stage.id;
-                const col = PHASE_COLORS[stage.phase];
-                return (
-                  <div key={stage.id} className="flex flex-col items-center gap-3">
-                    {/* Node circle */}
-                    <div
-                      className={`w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all duration-500 ${
-                        isActive
-                          ? `${col.bg} ${col.border} ${col.text} shadow-md scale-110`
-                          : "bg-white border-[#E2E8F0] text-[#94A3B8]"
-                      }`}
-                    >
-                      <span className="text-[10px] font-bold tabular-nums">
-                        {String(stage.id).padStart(2, "0")}
-                      </span>
-                    </div>
-                    {/* Label */}
-                    <div className="text-center">
-                      <p
-                        className={`text-xs font-bold leading-snug transition-colors duration-300 min-h-[2rem] flex items-center justify-center text-center ${
-                          isActive ? "text-[#0B1F3A]" : "text-[#94A3B8]"
-                        }`}
-                      >
-                        {stage.label}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Stage detail cards — 3 per row */}
-          <div className="mt-14 grid grid-cols-3 gap-6">
-            {/* Foundation */}
-            <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-8">
-              <div className="w-2 h-6 rounded-full bg-[#0B1F3A] mb-4" />
-              <p className="text-xs font-bold uppercase tracking-wider text-[#0B1F3A] mb-1">Stages 01–02</p>
-              <h3 className="text-lg font-bold text-[#0B1F3A] mb-3">Foundation & Skills</h3>
-              <p className="text-sm text-[#4F5B6A] leading-relaxed">
-                Academic credentials combined with high-demand technical certifications give learners the baseline to enter incubation with confidence.
-              </p>
-            </div>
-            {/* Incubation */}
-            <div className="bg-[#F8FAFC] border-2 border-[#5F2DEE]/25 rounded-2xl p-8">
-              <div className="w-2 h-6 rounded-full bg-[#5F2DEE] mb-4" />
-              <p className="text-xs font-bold uppercase tracking-wider text-[#5F2DEE] mb-1">Stages 03–05</p>
-              <h3 className="text-lg font-bold text-[#0B1F3A] mb-3">
-                <span className="whitespace-nowrap">WISE-Teck</span> Incubation
-              </h3>
-              <p className="text-sm text-[#4F5B6A] leading-relaxed">
-                Practical projects, portfolio development, and structured internships inside our six specialized labs — turning learning into verified, sellable work history.
-              </p>
-            </div>
-            {/* Earning */}
-            <div className="bg-[#0B1F3A] rounded-2xl p-8">
-              <div className="w-2 h-6 rounded-full bg-[#FFB347] mb-4" />
-              <p className="text-xs font-bold uppercase tracking-wider text-[#FFB347] mb-1">Stages 06–09</p>
-              <h3 className="text-lg font-bold text-white mb-3">Earning & Independence</h3>
-              <p className="text-sm text-slate-300 leading-relaxed mb-4">
-                Three parallel commercial pathways — each a viable, proven route out of the program:
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {["Freelancing", "Employment", "Entrepreneurship"].map((tag) => (
-                  <span key={tag} className="text-xs font-bold bg-white/10 text-white px-3 py-1 rounded-md">
-                    {tag}
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#5F2DEE] block mb-1">
+                    Stage 01 · Opening Foundation Anchor
                   </span>
-                ))}
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A] leading-tight">
+                    WISE Tech
+                  </h3>
+                  <p className="text-base font-semibold text-[#0B1F3A] mt-1">
+                    Applied Skills & Innovation Ecosystem
+                  </p>
+                </div>
+              </div>
+              <div className="self-start md:self-auto bg-white border border-[#E2E8F0] px-5 py-2.5 rounded-xl text-xs font-bold text-[#0B1F3A]">
+                Intake Gateway
+              </div>
+            </div>
+            <p className="text-sm sm:text-base text-[#4F5B6A] leading-relaxed mt-6 max-w-3xl [text-wrap:pretty]">
+              Students enter directly into applied computational disciplines, practical programming labs, and market-aligned technical coursework designed for commercial readiness.
+            </p>
+          </div>
+
+          {/* ────────────────────────────────────────────────────────── */}
+          {/* STAGE 2: Innovation & Incubation (Wide Featured Block)     */}
+          {/* ────────────────────────────────────────────────────────── */}
+          <div 
+            className={`transition-all duration-700 ease-out bg-white border-2 rounded-3xl p-8 sm:p-10 lg:p-12 ${
+              revealed >= 2 
+                ? "border-[#5F2DEE]/35 shadow-sm translate-y-0 opacity-100" 
+                : "border-[#E2E8F0] translate-y-4 opacity-50"
+            }`}
+          >
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#E2E8F0] mb-8">
+              <div className="flex items-start gap-5 sm:gap-6">
+                <div className="w-14 h-14 rounded-2xl bg-[#5F2DEE] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-xs">
+                  02
+                </div>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#5F2DEE] block mb-1">
+                    Stage 02 · Incubation Core
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A] leading-tight">
+                    Innovation & Incubation
+                  </h3>
+                </div>
+              </div>
+              <span className="text-xs font-bold text-[#5F2DEE] bg-[#5F2DEE]/10 px-4 py-2 rounded-xl self-start md:self-auto">
+                Dedicated Physical Labs
+              </span>
+            </div>
+
+            {/* 4 Pillars of Stage 2 (Idea Development · Mentorship · Prototype to Product · Startup Support) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0]">
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#E2E8F0] flex items-center justify-center text-[#5F2DEE] mb-3.5 shadow-2xs">
+                  <Lightbulb className="w-5 h-5" />
+                </div>
+                <h4 className="text-base font-bold text-[#0B1F3A] mb-1">Idea Development</h4>
+                <p className="text-xs text-[#4F5B6A] leading-relaxed">
+                  Refining concepts, technical architecture, and market feasibility.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0]">
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#E2E8F0] flex items-center justify-center text-[#5F2DEE] mb-3.5 shadow-2xs">
+                  <Sparkles className="w-5 h-5" />
+                </div>
+                <h4 className="text-base font-bold text-[#0B1F3A] mb-1">Mentorship</h4>
+                <p className="text-xs text-[#4F5B6A] leading-relaxed">
+                  Direct guidance from senior industry engineers and technical leads.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0]">
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#E2E8F0] flex items-center justify-center text-[#5F2DEE] mb-3.5 shadow-2xs">
+                  <Rocket className="w-5 h-5" />
+                </div>
+                <h4 className="text-base font-bold text-[#0B1F3A] mb-1">Prototype to Product</h4>
+                <p className="text-xs text-[#4F5B6A] leading-relaxed">
+                  Building production codebases, automated tests, and MVP platforms.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0]">
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#E2E8F0] flex items-center justify-center text-[#5F2DEE] mb-3.5 shadow-2xs">
+                  <Building2 className="w-5 h-5" />
+                </div>
+                <h4 className="text-base font-bold text-[#0B1F3A] mb-1">Startup Support</h4>
+                <p className="text-xs text-[#4F5B6A] leading-relaxed">
+                  Entity formation, legal structuring, and venture readiness backing.
+                </p>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* ── Mobile (< 1024px): vertical step list ── */}
-        <div className="lg:hidden">
-          <div className="relative pl-8">
-            {/* Vertical track line */}
-            <div className="absolute top-4 bottom-4 left-[18px] w-[3px] bg-[#E2E8F0] rounded-full" />
-            {/* Animated fill */}
-            <div
-              className="absolute top-4 left-[18px] w-[3px] rounded-full transition-all duration-500 ease-out"
-              style={{
-                height: revealed === 0 ? "0%" : `${(revealed / STAGES.length) * 100}%`,
-                background: "linear-gradient(180deg, #0B1F3A 0%, #5F2DEE 60%, #FFB347 100%)",
-              }}
-            />
+          {/* ────────────────────────────────────────────────────────── */}
+          {/* STAGE 3: Practical Experience (3 Parallel Tracks)          */}
+          {/* ────────────────────────────────────────────────────────── */}
+          <div 
+            className={`transition-all duration-700 ease-out bg-[#F8FAFC] border rounded-3xl p-8 sm:p-10 lg:p-12 ${
+              revealed >= 3 
+                ? "border-[#CBD5E1] shadow-xs translate-y-0 opacity-100" 
+                : "border-[#E2E8F0] translate-y-4 opacity-50"
+            }`}
+          >
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#E2E8F0] mb-8">
+              <div className="flex items-start gap-5 sm:gap-6">
+                <div className="w-14 h-14 rounded-2xl bg-[#0B1F3A] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-xs">
+                  03
+                </div>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#5F2DEE] block mb-1">
+                    Stage 03 · Execution Layer
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A] leading-tight">
+                    Practical Experience
+                  </h3>
+                </div>
+              </div>
+              <span className="text-xs font-bold text-[#0B1F3A] bg-white border border-[#E2E8F0] px-4 py-2 rounded-xl self-start md:self-auto">
+                3 Parallel Execution Tracks
+              </span>
+            </div>
 
-            <div className="space-y-6">
-              {STAGES.map((stage) => {
-                const isActive = revealed >= stage.id;
-                const col = PHASE_COLORS[stage.phase];
-                return (
-                  <div key={stage.id} className="relative flex items-start gap-5">
-                    {/* Node */}
-                    <div
-                      className={`w-9 h-9 rounded-full border-2 flex items-center justify-center shrink-0 z-10 transition-all duration-400 ${
-                        isActive
-                          ? `${col.bg} ${col.border} ${col.text} shadow-sm`
-                          : "bg-white border-[#E2E8F0] text-[#94A3B8]"
-                      }`}
-                    >
-                      <span className="text-[10px] font-bold">{String(stage.id).padStart(2, "0")}</span>
-                    </div>
-                    {/* Content */}
-                    <div
-                      className={`flex-1 p-5 rounded-xl border transition-all ${
-                        isActive ? "bg-white border-[#CBD5E1] shadow-sm" : "bg-white/60 border-[#E2E8F0]"
-                      }`}
-                    >
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-[#5F2DEE] mb-1">
-                        {stage.sub}
-                      </p>
-                      <h3 className="text-base font-bold text-[#0B1F3A] mb-1">{stage.label}</h3>
-                      <p className="text-sm text-[#4F5B6A] leading-relaxed">{stage.detail}</p>
-                    </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Track 1: Portfolio */}
+              <div className="bg-white border border-[#E2E8F0] rounded-2xl p-7 flex flex-col justify-between hover:border-[#5F2DEE]/40 transition-colors">
+                <div>
+                  <div className="w-11 h-11 rounded-xl bg-[#5F2DEE]/10 text-[#5F2DEE] flex items-center justify-center mb-4">
+                    <FolderGit2 className="w-6 h-6" />
                   </div>
-                );
-              })}
+                  <h4 className="text-lg font-bold text-[#0B1F3A] mb-1">Portfolio</h4>
+                  <p className="text-xs font-semibold text-[#5F2DEE] mb-3">Build & showcase your work</p>
+                  <p className="text-sm text-[#4F5B6A] leading-relaxed [text-wrap:pretty]">
+                    Developing verified GitHub repositories, live software deployments, and client case studies proving commercial technical capability.
+                  </p>
+                </div>
+              </div>
+
+              {/* Track 2: Internship */}
+              <div className="bg-white border border-[#E2E8F0] rounded-2xl p-7 flex flex-col justify-between hover:border-[#5F2DEE]/40 transition-colors">
+                <div>
+                  <div className="w-11 h-11 rounded-xl bg-[#0B1F3A]/10 text-[#0B1F3A] flex items-center justify-center mb-4">
+                    <Layers className="w-6 h-6" />
+                  </div>
+                  <h4 className="text-lg font-bold text-[#0B1F3A] mb-1">Internship</h4>
+                  <p className="text-xs font-semibold text-[#0B1F3A] mb-3">Gain workplace exposure</p>
+                  <p className="text-sm text-[#4F5B6A] leading-relaxed [text-wrap:pretty]">
+                    Supervised team participation in Agile sprints, code review cycles, client standups, and structured enterprise delivery environments.
+                  </p>
+                </div>
+              </div>
+
+              {/* Track 3: Client Projects */}
+              <div className="bg-white border border-[#E2E8F0] rounded-2xl p-7 flex flex-col justify-between hover:border-[#5F2DEE]/40 transition-colors">
+                <div>
+                  <div className="w-11 h-11 rounded-xl bg-[#FFB347]/20 text-[#0B1F3A] flex items-center justify-center mb-4">
+                    <Briefcase className="w-6 h-6 text-[#0B1F3A]" />
+                  </div>
+                  <h4 className="text-lg font-bold text-[#0B1F3A] mb-1">Client Projects</h4>
+                  <p className="text-xs font-semibold text-[#0B1F3A] mb-3">Work on real client projects</p>
+                  <p className="text-sm text-[#4F5B6A] leading-relaxed [text-wrap:pretty]">
+                    Direct execution of commercial client deliverables under senior practitioner oversight, producing billable industry software assets.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
+
+          {/* ────────────────────────────────────────────────────────── */}
+          {/* STAGE 4: Career Pathways (Jobs · Freelancing · Business)   */}
+          {/* ────────────────────────────────────────────────────────── */}
+          <div 
+            className={`transition-all duration-700 ease-out bg-white border-2 rounded-3xl p-8 sm:p-10 lg:p-12 ${
+              revealed >= 4 
+                ? "border-[#0B1F3A]/30 shadow-sm translate-y-0 opacity-100" 
+                : "border-[#E2E8F0] translate-y-4 opacity-50"
+            }`}
+          >
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#E2E8F0] mb-8">
+              <div className="flex items-start gap-5 sm:gap-6">
+                <div className="w-14 h-14 rounded-2xl bg-[#0B1F3A] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-xs">
+                  04
+                </div>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#0B1F3A] block mb-1">
+                    Stage 04 · Earning Realization
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A] leading-tight">
+                    Career Pathways
+                  </h3>
+                </div>
+              </div>
+              <span className="text-xs font-bold text-[#0B1F3A] bg-[#F1F5F9] px-4 py-2 rounded-xl self-start md:self-auto border border-[#E2E8F0]">
+                3 Parallel Commercial Outcomes
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Outcome 1: Jobs */}
+              <div className="p-7 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex flex-col justify-between">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#0B1F3A] bg-white px-3 py-1 rounded-md border border-[#E2E8F0] inline-block mb-4">
+                    Pathway A
+                  </span>
+                  <h4 className="text-xl font-bold text-[#0B1F3A] mb-1">Jobs</h4>
+                  <p className="text-xs font-semibold text-[#5F2DEE] mb-3">Get hired by top companies</p>
+                  <p className="text-sm text-[#4F5B6A] leading-relaxed [text-wrap:pretty]">
+                    Formal employment placement in software houses, technology consulting firms, and enterprise IT departments nationally and globally.
+                  </p>
+                </div>
+              </div>
+
+              {/* Outcome 2: Freelancing */}
+              <div className="p-7 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex flex-col justify-between">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#0B1F3A] bg-white px-3 py-1 rounded-md border border-[#E2E8F0] inline-block mb-4">
+                    Pathway B
+                  </span>
+                  <h4 className="text-xl font-bold text-[#0B1F3A] mb-1">Freelancing</h4>
+                  <p className="text-xs font-semibold text-[#5F2DEE] mb-3">Work with global clients</p>
+                  <p className="text-sm text-[#4F5B6A] leading-relaxed [text-wrap:pretty]">
+                    High-ticket independent contracting, international freelance client acquisition, and cross-border digital service delivery.
+                  </p>
+                </div>
+              </div>
+
+              {/* Outcome 3: Business */}
+              <div className="p-7 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex flex-col justify-between">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#0B1F3A] bg-white px-3 py-1 rounded-md border border-[#E2E8F0] inline-block mb-4">
+                    Pathway C
+                  </span>
+                  <h4 className="text-xl font-bold text-[#0B1F3A] mb-1">Business</h4>
+                  <p className="text-xs font-semibold text-[#5F2DEE] mb-3">Start & grow your own venture</p>
+                  <p className="text-sm text-[#4F5B6A] leading-relaxed [text-wrap:pretty]">
+                    Commercial agency foundation, product company launch, and scalable technology startups backed by WISE-Teck incubation resources.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ────────────────────────────────────────────────────────── */}
+          {/* STAGE 5: Closing Outcome — Economic Independence           */}
+          {/* ────────────────────────────────────────────────────────── */}
+          <div 
+            className={`transition-all duration-700 ease-out bg-[#0B1F3A] text-white rounded-3xl p-8 sm:p-12 lg:p-14 shadow-md ${
+              revealed >= 5 
+                ? "translate-y-0 opacity-100" 
+                : "translate-y-4 opacity-50"
+            }`}
+          >
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-white/15 mb-8">
+              <div className="flex items-start gap-5 sm:gap-6">
+                <div className="w-14 h-14 rounded-2xl bg-[#FFB347] text-[#0B1F3A] flex items-center justify-center font-bold text-lg shrink-0 shadow-xs">
+                  05
+                </div>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#FFB347] block mb-1">
+                    Stage 05 · The Definitive Outcome
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-tight">
+                    Economic Independence
+                  </h3>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-xl text-xs font-bold text-white self-start md:self-auto">
+                <CheckCircle2 className="w-4 h-4 text-[#FFB347]" />
+                <span>The Final Objective</span>
+              </div>
+            </div>
+
+            {/* 3 Outcome Pillars: Empowered Skills. Meaningful Work. Sustainable Income. */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center sm:text-left">
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
+                <span className="text-xs font-bold text-[#FFB347] block mb-1">Pillar I</span>
+                <h4 className="text-lg font-bold text-white mb-2">Empowered Skills</h4>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Mastery of high-value computational tools and verified practical execution.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
+                <span className="text-xs font-bold text-[#FFB347] block mb-1">Pillar II</span>
+                <h4 className="text-lg font-bold text-white mb-2">Meaningful Work</h4>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Engagement on high-impact software products and commercial enterprise contracts.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
+                <span className="text-xs font-bold text-[#FFB347] block mb-1">Pillar III</span>
+                <h4 className="text-lg font-bold text-white mb-2">Sustainable Income</h4>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Long-term financial autonomy through salaried jobs, freelancing, and venture equity.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
         </div>
 
       </div>
