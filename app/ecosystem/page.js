@@ -47,32 +47,49 @@ export default function EcosystemPage() {
       <main className="flex-1">
         
         {/* ========================================================================= */}
-        {/* PAGE HEADER (Opening Framing — NOT a numbered section)                    */}
+        {/* PAGE HEADER — FULL-BLEED HERO (President Meeting Background)              */}
+        {/* NOT a numbered section — standard page framing                            */}
         {/* ========================================================================= */}
-        <section className="pt-20 pb-16 lg:pt-28 lg:pb-20 bg-[#F8FAFC] border-b border-[#E2E8F0] relative overflow-hidden">
-          <div className="site-container">
-            <div className="max-w-4xl mx-auto text-left">
-              
-              {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E2E8F0] bg-white mb-6 shadow-2xs">
-                <span className="w-2 h-2 rounded-full bg-[#5F2DEE] shrink-0" />
-                <span className="text-[11px] font-bold uppercase tracking-widest text-[#0B1F3A]">
+        <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden bg-[#071527] text-white py-20 lg:py-28 border-b border-[#E2E8F0]">
+          {/* Full-Bleed Background Image with High Clarity & Overlay */}
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            <Image
+              src="/images/impact/president-meeting.jpeg"
+              alt="WISE-Teck Institutional Leadership & Ecosystem"
+              fill
+              priority
+              className="object-cover object-center opacity-85 scale-100"
+              sizes="100vw"
+            />
+            {/* Cinematic gradient overlay for crisp text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#071527] via-[#0B1F3A]/65 to-[#071527]/85" />
+            <div className="absolute inset-0 bg-[#0B1F3A]/30 backdrop-blur-[0.5px]" />
+          </div>
+
+          {/* Centered Content Container */}
+          <div className="site-container relative z-10 w-full flex flex-col items-center text-center my-auto">
+            <div className="max-w-4xl mx-auto flex flex-col items-center">
+
+              {/* Eyebrow Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md mb-6 shadow-sm">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#FFB347] shrink-0 animate-pulse" />
+                <span className="text-xs font-bold uppercase tracking-widest text-white/90">
                   Institutional Framework · 4 Unified Pillars
                 </span>
               </div>
 
-              {/* Page Title */}
-              <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold text-[#0B1F3A] leading-[1.15] tracking-tight mb-8 [text-wrap:balance]">
-                The WISE Ecosystem
+              {/* Page Title — strictly 1 to 2 lines */}
+              <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold text-white leading-[1.16] tracking-tight mb-6 max-w-4xl [text-wrap:balance] drop-shadow-sm">
+                The <span className="text-[#FFB347]">WISE Ecosystem</span>
               </h1>
 
-              {/* Exact Verbatim Header Supporting Text */}
-              <div className="space-y-4 text-base sm:text-lg text-[#4F5B6A] leading-relaxed [text-wrap:pretty]">
+              {/* Verbatim Header Supporting Text */}
+              <div className="space-y-4 text-base sm:text-lg text-slate-200 leading-relaxed max-w-3xl mx-auto [text-wrap:pretty] drop-shadow-xs">
                 <p>
-                  <span className="whitespace-nowrap font-bold text-[#0B1F3A]">WISE-Teck</span> serves as the practical implementation platform for all projects of WISE Education Society. Students from the Wise Support Hub, Wise Educational Hub, and WISE Institute of Employability Skills ultimately become part of WISE-Teck, where they further develop their professional capabilities and gain practical industry experience.
+                  <span className="whitespace-nowrap font-bold text-white">WISE-Teck</span> serves as the practical implementation platform for all projects of WISE Education Society. Students from the Wise Support Hub, Wise Educational Hub, and WISE Institute of Employability Skills ultimately become part of WISE-Teck, where they further develop their professional capabilities and gain practical industry experience.
                 </p>
                 <p>
-                  Through this unique ecosystem, <span className="whitespace-nowrap font-bold text-[#0B1F3A]">WISE-Teck</span> transforms education into employability, skills into earning opportunities, and learners into confident, self-reliant professionals.
+                  Through this unique ecosystem, <span className="whitespace-nowrap font-bold text-white">WISE-Teck</span> transforms education into employability, skills into earning opportunities, and learners into confident, self-reliant professionals.
                 </p>
               </div>
 
