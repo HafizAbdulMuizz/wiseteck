@@ -22,6 +22,7 @@ import { MapPin, Phone, Mail, Clock, Send, CheckCircle2 } from "lucide-react";
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [inquiryType, setInquiryType] = useState("incubation");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -122,7 +123,6 @@ export default function ContactSection() {
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
-                allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
@@ -158,21 +158,24 @@ export default function ContactSection() {
                     Inquiry Type <span className="text-[#5F2DEE]">*</span>
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <label className="flex items-center gap-3 p-4 rounded-xl border border-[#E2E8F0] hover:border-[#5F2DEE] cursor-pointer transition-colors bg-[#F8FAFC]">
+                    <label className={`flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-colors ${inquiryType === "incubation" ? "border-[#5F2DEE] bg-[#5F2DEE]/5" : "border-[#E2E8F0] bg-[#F8FAFC]"}`}>
                       <input
                         type="radio"
                         name="inquiryType"
                         value="incubation"
-                        defaultChecked
+                        checked={inquiryType === "incubation"}
+                        onChange={() => setInquiryType("incubation")}
                         className="text-[#5F2DEE] focus:ring-[#5F2DEE]"
                       />
                       <span className="text-xs font-bold text-[#0B1F3A]">Student / Incubation Track</span>
                     </label>
-                    <label className="flex items-center gap-3 p-4 rounded-xl border border-[#E2E8F0] hover:border-[#5F2DEE] cursor-pointer transition-colors bg-[#F8FAFC]">
+                    <label className={`flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-colors ${inquiryType === "corporate" ? "border-[#5F2DEE] bg-[#5F2DEE]/5" : "border-[#E2E8F0] bg-[#F8FAFC]"}`}>
                       <input
                         type="radio"
                         name="inquiryType"
                         value="corporate"
+                        checked={inquiryType === "corporate"}
+                        onChange={() => setInquiryType("corporate")}
                         className="text-[#5F2DEE] focus:ring-[#5F2DEE]"
                       />
                       <span className="text-xs font-bold text-[#0B1F3A]">Corporate / Tech Services</span>

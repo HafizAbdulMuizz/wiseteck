@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 /**
  * Global Institutional Footer
@@ -9,6 +9,7 @@ import { MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
  * Rules:
  * - Logo treatment on dark background: seamless, no jarring stark white box
  * - Original asset proportions
+ * - Static copyright year to prevent SSR hydration mismatches
  * - Navigation links + legal notices
  */
 
@@ -125,7 +126,7 @@ export default function Footer() {
         {/* Bottom Bar: Copyright & Governance */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>
-            © {new Date().getFullYear()} <span className="whitespace-nowrap text-white font-semibold">WISE-Teck</span>. All rights reserved. Governed by WISE Education Society Board.
+            © 2025–2026 <span className="whitespace-nowrap text-white font-semibold">WISE-Teck</span>. All rights reserved. Governed by WISE Education Society Board.
           </p>
           <div className="flex items-center gap-6">
             <a href="#about" className="hover:text-white transition-colors">Privacy & Governance</a>

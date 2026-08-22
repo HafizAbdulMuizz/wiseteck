@@ -25,8 +25,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-white text-[#4F5B6A] selection:bg-[#5F2DEE]/15 selection:text-[#0B1F3A]">
+    <html lang="en" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
+      <body className="min-h-full flex flex-col bg-white text-[#4F5B6A] selection:bg-[#5F2DEE]/15 selection:text-[#0B1F3A]" suppressHydrationWarning>
         {children}
       </body>
     </html>
