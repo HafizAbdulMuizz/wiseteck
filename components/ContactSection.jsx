@@ -1,28 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle2 } from "lucide-react";
 
 /**
  * Section 11 — Contact Information
  *
- * Approved Elements (Structure document):
- * - Contact Form
- * - Address (48-Main Gulberg, Lahore)
- * - Phone Numbers (+92-300-8410868 / +92-42-35755171)
- * - Email Address (info@wiseteck.org / admissions@wiseteck.org)
- * - Google Map Embed
- * - Social Media Links
- *
- * Rules:
- * - Form stacks cleanly on mobile (no cramped 2-column inputs)
- * - Never split "WISE-Teck" across a line
- * - Navy submit button
+ * Fully protected against browser extension attribute injection (fdprocessedid, etc.)
  */
 
 export default function ContactSection() {
+  const [mounted, setMounted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [inquiryType, setInquiryType] = useState("incubation");
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,7 +43,7 @@ export default function ContactSection() {
           </p>
         </div>
 
-        {/* 2-Column Layout: Contact Details on Left, Form on Right */}
+        {/* 2-Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Left Column: Institutional Contact Details */}
@@ -149,15 +143,25 @@ export default function ContactSection() {
                   Thank you for contacting <span className="whitespace-nowrap font-semibold">WISE-Teck</span>. An institutional coordinator will respond to your submission within one business day.
                 </p>
               </div>
+            ) : !mounted ? (
+              <div className="space-y-6 animate-pulse py-4">
+                <div className="h-10 bg-slate-100 rounded-xl w-full" />
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="h-12 bg-slate-100 rounded-xl" />
+                  <div className="h-12 bg-slate-100 rounded-xl" />
+                </div>
+                <div className="h-28 bg-slate-100 rounded-xl w-full" />
+                <div className="h-12 bg-slate-200 rounded-xl w-48" />
+              </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" suppressHydrationWarning>
                 
-                {/* Inquiry Type Radio / Pill selection */}
-                <div>
+                {/* Inquiry Type Radio selection */}
+                <div suppressHydrationWarning>
                   <label className="block text-xs font-bold uppercase tracking-wider text-[#0B1F3A] mb-3">
                     Inquiry Type <span className="text-[#5F2DEE]">*</span>
                   </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3" suppressHydrationWarning>
                     <label className={`flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-colors ${inquiryType === "incubation" ? "border-[#5F2DEE] bg-[#5F2DEE]/5" : "border-[#E2E8F0] bg-[#F8FAFC]"}`}>
                       <input
                         type="radio"
@@ -166,6 +170,7 @@ export default function ContactSection() {
                         checked={inquiryType === "incubation"}
                         onChange={() => setInquiryType("incubation")}
                         className="text-[#5F2DEE] focus:ring-[#5F2DEE]"
+                        suppressHydrationWarning
                       />
                       <span className="text-xs font-bold text-[#0B1F3A]">Student / Incubation Track</span>
                     </label>
@@ -177,6 +182,7 @@ export default function ContactSection() {
                         checked={inquiryType === "corporate"}
                         onChange={() => setInquiryType("corporate")}
                         className="text-[#5F2DEE] focus:ring-[#5F2DEE]"
+                        suppressHydrationWarning
                       />
                       <span className="text-xs font-bold text-[#0B1F3A]">Corporate / Tech Services</span>
                     </label>
@@ -184,8 +190,8 @@ export default function ContactSection() {
                 </div>
 
                 {/* Name & Email Fields */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6" suppressHydrationWarning>
+                  <div suppressHydrationWarning>
                     <label htmlFor="contact-name" className="block text-xs font-bold uppercase tracking-wider text-[#0B1F3A] mb-2">
                       Full Name <span className="text-[#5F2DEE]">*</span>
                     </label>
@@ -195,9 +201,10 @@ export default function ContactSection() {
                       required
                       placeholder="e.g. Ahmad Khan"
                       className="w-full px-4 py-3.5 rounded-xl border border-[#E2E8F0] text-sm text-[#0B1F3A] bg-[#F8FAFC] focus:bg-white focus:outline-none focus:border-[#5F2DEE] focus:ring-1 focus:ring-[#5F2DEE] transition-all"
+                      suppressHydrationWarning
                     />
                   </div>
-                  <div>
+                  <div suppressHydrationWarning>
                     <label htmlFor="contact-email" className="block text-xs font-bold uppercase tracking-wider text-[#0B1F3A] mb-2">
                       Email Address <span className="text-[#5F2DEE]">*</span>
                     </label>
@@ -207,13 +214,14 @@ export default function ContactSection() {
                       required
                       placeholder="e.g. ahmad@example.com"
                       className="w-full px-4 py-3.5 rounded-xl border border-[#E2E8F0] text-sm text-[#0B1F3A] bg-[#F8FAFC] focus:bg-white focus:outline-none focus:border-[#5F2DEE] focus:ring-1 focus:ring-[#5F2DEE] transition-all"
+                      suppressHydrationWarning
                     />
                   </div>
                 </div>
 
                 {/* Phone & Subject */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6" suppressHydrationWarning>
+                  <div suppressHydrationWarning>
                     <label htmlFor="contact-phone" className="block text-xs font-bold uppercase tracking-wider text-[#0B1F3A] mb-2">
                       Phone / WhatsApp Number
                     </label>
@@ -222,15 +230,17 @@ export default function ContactSection() {
                       type="tel"
                       placeholder="e.g. +92 300 1234567"
                       className="w-full px-4 py-3.5 rounded-xl border border-[#E2E8F0] text-sm text-[#0B1F3A] bg-[#F8FAFC] focus:bg-white focus:outline-none focus:border-[#5F2DEE] focus:ring-1 focus:ring-[#5F2DEE] transition-all"
+                      suppressHydrationWarning
                     />
                   </div>
-                  <div>
+                  <div suppressHydrationWarning>
                     <label htmlFor="contact-track" className="block text-xs font-bold uppercase tracking-wider text-[#0B1F3A] mb-2">
                       Area of Interest
                     </label>
                     <select
                       id="contact-track"
                       className="w-full px-4 py-3.5 rounded-xl border border-[#E2E8F0] text-sm text-[#0B1F3A] bg-[#F8FAFC] focus:bg-white focus:outline-none focus:border-[#5F2DEE] focus:ring-1 focus:ring-[#5F2DEE] transition-all"
+                      suppressHydrationWarning
                     >
                       <option value="software">Software Development Incubator</option>
                       <option value="ai">AI & Data Science Incubator</option>
@@ -245,7 +255,7 @@ export default function ContactSection() {
                 </div>
 
                 {/* Message */}
-                <div>
+                <div suppressHydrationWarning>
                   <label htmlFor="contact-msg" className="block text-xs font-bold uppercase tracking-wider text-[#0B1F3A] mb-2">
                     Message / Project Scope <span className="text-[#5F2DEE]">*</span>
                   </label>
@@ -255,6 +265,7 @@ export default function ContactSection() {
                     required
                     placeholder="Tell us about your background, desired incubation track, or business software requirements..."
                     className="w-full px-4 py-3.5 rounded-xl border border-[#E2E8F0] text-sm text-[#0B1F3A] bg-[#F8FAFC] focus:bg-white focus:outline-none focus:border-[#5F2DEE] focus:ring-1 focus:ring-[#5F2DEE] transition-all resize-y"
+                    suppressHydrationWarning
                   />
                 </div>
 
@@ -262,6 +273,7 @@ export default function ContactSection() {
                 <button
                   type="submit"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-[#0B1F3A] text-white font-bold text-base hover:bg-[#163259] transition-colors shadow-sm cursor-pointer"
+                  suppressHydrationWarning
                 >
                   <span>Submit Institutional Inquiry</span>
                   <Send className="w-4 h-4" />
