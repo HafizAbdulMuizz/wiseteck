@@ -8,7 +8,6 @@ import {
   TrendingUp, 
   CheckCircle2, 
   Users2, 
-  ArrowRight,
   ShieldCheck,
   Building2,
   Cpu,
@@ -23,10 +22,10 @@ export const metadata = {
 };
 
 /*
-  WISE-TECK ABOUT US PAGE (v2 Visual Fix Architecture)
-  ====================================================
+  WISE-TECK ABOUT US PAGE
+  =======================
   LOCKED PAGE STRUCTURE (EXACTLY 6 SECTIONS IN THIS EXACT ORDER):
-  1. Introduction to WISE-Teck
+  1. Introduction to WISE-Teck (Full-Bleed Background with Sir Speech & Centered Content)
   2. Mission
   3. Our Journey
   4. Our Impact
@@ -43,93 +42,81 @@ export default function AboutPage() {
       <main className="flex-1">
         
         {/* ========================================================================= */}
-        {/* SECTION 1 — INTRODUCTION TO WISE-TECK (Left-Aligned + Supporting Photo)   */}
+        {/* SECTION 1 — INTRODUCTION TO WISE-TECK (Centered Full-Bleed Hero)          */}
         {/* ========================================================================= */}
-        <section id="introduction" className="section-padding bg-white border-b border-[#E2E8F0] relative overflow-hidden">
-          <div className="site-container">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <section 
+          id="introduction" 
+          className="relative min-h-[88vh] flex items-center justify-center overflow-hidden bg-[#071527] text-white py-20 lg:py-28 border-b border-[#E2E8F0]"
+        >
+          {/* Full-Bleed Background Image (Sir Speech) with High Clarity & Overlay */}
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            <Image
+              src="/images/about/sir-speech.jpeg"
+              alt="WISE-Teck Institutional Foundation & Leadership"
+              fill
+              priority
+              className="object-cover object-center opacity-85 scale-100"
+              sizes="100vw"
+            />
+            {/* Cinematic gradient overlay for crisp text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#071527] via-[#0B1F3A]/65 to-[#071527]/85" />
+            <div className="absolute inset-0 bg-[#0B1F3A]/30 backdrop-blur-[0.5px]" />
+          </div>
+
+          {/* Centered Content Container */}
+          <div className="site-container relative z-10 w-full flex flex-col items-center text-center my-auto">
+            <div className="max-w-4xl mx-auto flex flex-col items-center">
               
-              {/* Left Column: Left-Aligned Editorial Text */}
-              <div className="lg:col-span-7 flex flex-col items-start text-left">
-                
-                {/* Eyebrow */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E2E8F0] bg-[#F8FAFC] mb-6 shadow-2xs">
-                  <span className="w-2 h-2 rounded-full bg-[#5F2DEE] shrink-0" />
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-[#0B1F3A]">
-                    Section 1 · Introduction to WISE-Teck
-                  </span>
-                </div>
-
-                {/* Main Heading */}
-                <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-[#0B1F3A] leading-[1.16] tracking-tight mb-6 [text-wrap:balance]">
-                  Bridging Education, Innovation, and Commercial Enterprise
-                </h1>
-
-                {/* Integrated Approved Tagline */}
-                <div className="w-full p-5 rounded-xl bg-[#F8FAFC] border-l-4 border-[#5F2DEE] border-y border-r border-[#E2E8F0] mb-6">
-                  <p className="text-base sm:text-lg font-bold text-[#0B1F3A]">
-                    &ldquo;WISE-Teck — Learn Skills. Gain Experience. Create Opportunities.&rdquo;
-                  </p>
-                </div>
-
-                {/* Dual Identity Editorial Passages */}
-                <div className="space-y-4 text-base sm:text-lg text-[#4F5B6A] leading-relaxed [text-wrap:pretty]">
-                  <p>
-                    <span className="whitespace-nowrap font-bold text-[#0B1F3A]">WISE-Teck</span> is the dedicated technology, incubation, skills development, and professional services platform established by WISE Education Society in Lahore, Pakistan. Operating at the intersection of computational education and commercial industry, the platform transforms theoretical learners into commercially viable technology practitioners.
-                  </p>
-                  
-                  <p>
-                    Beyond its educational and incubation mission, <span className="whitespace-nowrap font-bold text-[#0B1F3A]">WISE-Teck</span> operates as a professional technology and digital solutions company — engineering custom enterprise software systems, AI pipelines, modern web applications, and digital capabilities for businesses.
-                  </p>
-
-                  {/* Our Commitment Passage */}
-                  <div className="pt-3">
-                    <h2 className="text-lg font-bold text-[#0B1F3A] mb-1.5">Our Commitment</h2>
-                    <p className="text-base text-[#4F5B6A] leading-relaxed">
-                      Our commitment is to empower youth by connecting disciplined academic foundation with real client deliverables, verified portfolio creation, and dedicated incubation labs — preparing every learner for sustainable professional earning.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Two Core Anchors */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 pt-6 border-t border-[#E2E8F0] w-full">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#5F2DEE]/10 text-[#5F2DEE] flex items-center justify-center shrink-0 mt-0.5">
-                      <GraduationCap className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-bold text-[#0B1F3A]">Incubation & Skills Core</h3>
-                      <p className="text-xs text-[#4F5B6A]">Six physical incubation tracks and NAVTTC accredited training.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#0B1F3A]/10 text-[#0B1F3A] flex items-center justify-center shrink-0 mt-0.5">
-                      <Briefcase className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-bold text-[#0B1F3A]">Corporate Services</h3>
-                      <p className="text-xs text-[#4F5B6A]">Commercial software delivery and enterprise engineering.</p>
-                    </div>
-                  </div>
-                </div>
-
+              {/* Eyebrow Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md mb-6 shadow-sm">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#FFB347] shrink-0 animate-pulse" />
+                <span className="text-xs font-bold uppercase tracking-widest text-white/90">
+                  Section 1 · Introduction to WISE-Teck
+                </span>
               </div>
 
-              {/* Right Column: Large Real Supporting Photo */}
-              <div className="lg:col-span-5">
-                <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border border-[#E2E8F0] shadow-sm bg-[#F1F5F9]">
-                  <Image
-                    src="/images/about/classroom.jpeg"
-                    alt="WISE-Teck practical technology training room and academic environment in Lahore"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    priority
-                  />
-                  <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm border border-[#E2E8F0] rounded-xl px-4 py-2 shadow-xs max-w-[260px]">
-                    <p className="text-xs font-bold text-[#0B1F3A]">WISE-Teck Campus</p>
-                    <p className="text-[11px] text-[#4F5B6A]">48-Main Gulberg, Lahore</p>
+              {/* Main Headline — Strictly 1 to 2 lines */}
+              <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold text-white leading-[1.16] tracking-tight mb-6 max-w-4xl [text-wrap:balance] drop-shadow-sm">
+                Bridging Education, Innovation, and <span className="text-[#FFB347]">Commercial Enterprise</span>
+              </h1>
+
+              {/* Integrated Approved Tagline */}
+              <div className="inline-block px-6 py-2.5 rounded-xl bg-white/10 backdrop-blur-xs border border-white/20 mb-8 shadow-xs">
+                <p className="text-sm sm:text-base font-bold text-white tracking-wide">
+                  &ldquo;WISE-Teck — Learn Skills. Gain Experience. Create Opportunities.&rdquo;
+                </p>
+              </div>
+
+              {/* Dual Identity & Commitment Passages */}
+              <div className="space-y-4 text-base sm:text-lg text-slate-200 leading-relaxed max-w-3xl mx-auto [text-wrap:pretty] drop-shadow-xs mb-10">
+                <p>
+                  <span className="whitespace-nowrap font-bold text-white">WISE-Teck</span> is the dedicated technology, incubation, skills development, and professional services platform established by WISE Education Society in Lahore, Pakistan — transforming theoretical learners into commercially viable technology practitioners.
+                </p>
+                
+                <p>
+                  Beyond education, <span className="whitespace-nowrap font-bold text-white">WISE-Teck</span> operates as a professional technology and digital solutions company — delivering custom enterprise software, AI pipelines, modern web applications, and corporate digital services.
+                </p>
+              </div>
+
+              {/* Two Core Anchors */}
+              <div className="pt-8 border-t border-white/20 w-full max-w-3xl grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+                <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 text-[#FFB347] flex items-center justify-center shrink-0 mt-0.5">
+                    <GraduationCap className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-white mb-0.5">Incubation & Skills Core</h3>
+                    <p className="text-xs text-slate-300">Six physical incubation tracks, NAVTTC accredited curriculum, and project mentorship.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
+                  <div className="w-10 h-10 rounded-lg bg-white/10 text-[#FFB347] flex items-center justify-center shrink-0 mt-0.5">
+                    <Briefcase className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-white mb-0.5">Corporate Services</h3>
+                    <p className="text-xs text-slate-300">Commercial client software engineering, enterprise AI systems, and live delivery.</p>
                   </div>
                 </div>
               </div>
