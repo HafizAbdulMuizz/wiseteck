@@ -1,240 +1,268 @@
 "use client";
 
 import React, { useState } from "react";
-import { MapPin, Phone, Mail, Globe, Send, Clock, CheckCircle2 } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle2 } from "lucide-react";
+
+/**
+ * Section 11 — Contact Information
+ *
+ * Approved Elements (Structure document):
+ * - Contact Form
+ * - Address (48-Main Gulberg, Lahore)
+ * - Phone Numbers (+92-300-8410868 / +92-42-35755171)
+ * - Email Address (info@wiseteck.org / admissions@wiseteck.org)
+ * - Google Map Embed
+ * - Social Media Links
+ *
+ * Rules:
+ * - Form stacks cleanly on mobile (no cramped 2-column inputs)
+ * - Never split "WISE-Teck" across a line
+ * - Navy submit button
+ */
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    interest: "incubation",
-    message: "",
-  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
   };
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   return (
-    <section id="contact" className="section-padding bg-white">
+    <section id="contact" className="section-padding bg-[#F8FAFC]">
       <div className="site-container">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        {/* Section Header */}
+        <div className="max-w-3xl mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E2E8F0] bg-white mb-6">
+            <span className="w-2 h-2 rounded-full bg-[#5F2DEE] shrink-0" />
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[#0B1F3A]">
+              Section 11 · Get in Touch
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0B1F3A] leading-tight mb-4 [text-wrap:balance]">
+            Contact <span className="whitespace-nowrap">WISE-Teck</span>
+          </h2>
+          <p className="text-lg text-[#4F5B6A] leading-relaxed max-w-[52ch]">
+            Visit our central Lahore campus, discuss corporate technology engagements, or inquire about incubation admissions.
+          </p>
+        </div>
+
+        {/* 2-Column Layout: Contact Details on Left, Form on Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Left Column: Official Contact Details */}
-          <div className="lg:col-span-5 flex flex-col justify-between">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#F1F5F9] border border-[#E2E8F0] mb-4">
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#0B1F3A]">
-                  Contact & Campus Info
-                </span>
+          {/* Left Column: Institutional Contact Details */}
+          <div className="lg:col-span-5 space-y-6">
+            
+            {/* Address */}
+            <div className="bg-white border border-[#E2E8F0] rounded-2xl p-7 flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center shrink-0 text-[#5F2DEE]">
+                <MapPin className="w-6 h-6" />
               </div>
-
-              <h2 className="text-2xl sm:text-3xl md:text-[34px] font-bold text-[#0B1F3A] leading-tight mb-4 [text-wrap:balance]">
-                Get in Touch with <span className="whitespace-nowrap">WISE-Teck</span>
-              </h2>
-
-              <p className="text-base text-[#4F5B6A] leading-relaxed mb-8">
-                Visit our physical incubation labs in Gulberg or speak directly with our program coordinators and technical leads.
-              </p>
-
-              {/* Contact Information List */}
-              <div className="space-y-5 mb-8">
-                
-                <div className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-md bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center text-[#0B1F3A] shrink-0 mt-0.5">
-                    <MapPin className="w-5 h-5 text-[#5F2DEE]" />
-                  </div>
-                  <div>
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-[#64748B]">Campus Location</h3>
-                    <p className="text-sm font-semibold text-[#0B1F3A] mt-0.5">
-                      48-Main Gulberg, Lahore, Pakistan
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-md bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center text-[#0B1F3A] shrink-0 mt-0.5">
-                    <Phone className="w-5 h-5 text-[#5F2DEE]" />
-                  </div>
-                  <div>
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-[#64748B]">Phone Number</h3>
-                    <a href="tel:+923008410868" className="text-sm font-semibold text-[#0B1F3A] hover:text-[#5F2DEE] transition-colors mt-0.5 block">
-                      +92-300-8410868
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-md bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center text-[#0B1F3A] shrink-0 mt-0.5">
-                    <Mail className="w-5 h-5 text-[#5F2DEE]" />
-                  </div>
-                  <div>
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-[#64748B]">Official Email</h3>
-                    <a href="mailto:info@wiseteck.co" className="text-sm font-semibold text-[#0B1F3A] hover:text-[#5F2DEE] transition-colors mt-0.5 block">
-                      info@wiseteck.co
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-md bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center text-[#0B1F3A] shrink-0 mt-0.5">
-                    <Globe className="w-5 h-5 text-[#5F2DEE]" />
-                  </div>
-                  <div>
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-[#64748B]">Website</h3>
-                    <p className="text-sm font-semibold text-[#0B1F3A] mt-0.5">
-                      www.wiseteck.co
-                    </p>
-                  </div>
-                </div>
-
+              <div>
+                <h3 className="text-base font-bold text-[#0B1F3A] mb-1">Campus Location</h3>
+                <p className="text-sm text-[#4F5B6A] leading-relaxed">
+                  48-Main Gulberg, Lahore, Punjab, Pakistan
+                </p>
+                <p className="text-xs text-[#94A3B8] mt-1">Adjacent to Main Boulevard Gulberg</p>
               </div>
             </div>
 
-            {/* Operating Hours Note */}
-            <div className="p-4 rounded-md bg-[#F8FAFC] border border-[#E2E8F0] flex items-center gap-3 text-xs text-[#4F5B6A]">
-              <Clock className="w-4 h-4 text-[#0B1F3A] shrink-0" />
-              <span>Campus & Lab Hours: Mon – Sat, 9:00 AM – 6:00 PM (PKT)</span>
+            {/* Phone Numbers */}
+            <div className="bg-white border border-[#E2E8F0] rounded-2xl p-7 flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center shrink-0 text-[#5F2DEE]">
+                <Phone className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-[#0B1F3A] mb-1">Phone & Inquiries</h3>
+                <p className="text-sm text-[#4F5B6A] font-semibold">
+                  +92 300 8410868
+                </p>
+                <p className="text-sm text-[#4F5B6A]">
+                  +92 42 35755171
+                </p>
+              </div>
             </div>
+
+            {/* Email Addresses */}
+            <div className="bg-white border border-[#E2E8F0] rounded-2xl p-7 flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center shrink-0 text-[#5F2DEE]">
+                <Mail className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-[#0B1F3A] mb-1">Official Correspondence</h3>
+                <p className="text-sm text-[#4F5B6A]">
+                  info@wiseteck.org
+                </p>
+                <p className="text-sm text-[#4F5B6A]">
+                  admissions@wiseteck.org
+                </p>
+              </div>
+            </div>
+
+            {/* Hours */}
+            <div className="bg-white border border-[#E2E8F0] rounded-2xl p-7 flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center shrink-0 text-[#5F2DEE]">
+                <Clock className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-[#0B1F3A] mb-1">Operating Hours</h3>
+                <p className="text-sm text-[#4F5B6A]">
+                  Monday – Saturday: 08:30 AM – 06:00 PM PKT
+                </p>
+                <p className="text-xs text-[#94A3B8] mt-1">Sunday: Closed</p>
+              </div>
+            </div>
+
+            {/* Google Map Embed */}
+            <div className="rounded-2xl overflow-hidden border border-[#E2E8F0] h-52 relative bg-[#E2E8F0]">
+              <iframe
+                title="WISE-Teck Lahore Location"
+                src="https://maps.google.com/maps?q=48-Main+Gulberg,+Lahore,+Pakistan&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+
           </div>
 
-          {/* Right Column: Accessible Inquiry Form */}
-          <div className="lg:col-span-7 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-6 sm:p-8 lg:p-10">
-            <h3 className="text-xl font-bold text-[#0B1F3A] mb-1">
-              Send an Official Inquiry
+          {/* Right Column: Accessible Contact & Inquiry Form */}
+          <div className="lg:col-span-7 bg-white border border-[#E2E8F0] rounded-3xl p-8 sm:p-10 lg:p-12 shadow-xs">
+            <h3 className="text-2xl font-bold text-[#0B1F3A] mb-2">
+              Send an Inquiry
             </h3>
-            <p className="text-xs text-[#4F5B6A] mb-6">
-              Complete the details below and our admissions or corporate accounts desk will respond within 24 business hours.
+            <p className="text-sm text-[#4F5B6A] mb-8">
+              Please specify whether your inquiry concerns student incubation or corporate technology services.
             </p>
 
             {submitted ? (
-              <div className="p-6 bg-white border border-[#CBD5E1] rounded-lg text-center flex flex-col items-center">
-                <div className="w-12 h-12 rounded-full bg-[#5F2DEE]/10 flex items-center justify-center text-[#5F2DEE] mb-3">
-                  <CheckCircle2 className="w-6 h-6" />
-                </div>
-                <h4 className="text-base font-bold text-[#0B1F3A]">Inquiry Received</h4>
-                <p className="text-xs text-[#4F5B6A] mt-1 max-w-sm">
-                  Thank you for reaching out to <span className="whitespace-nowrap">WISE-Teck</span>. A representative will contact you at {formData.email || "your provided email"}.
+              <div className="bg-[#10B981]/10 border border-[#10B981]/20 rounded-2xl p-8 text-center">
+                <CheckCircle2 className="w-12 h-12 text-[#10B981] mx-auto mb-4" />
+                <h4 className="text-xl font-bold text-[#0B1F3A] mb-2">
+                  Inquiry Received
+                </h4>
+                <p className="text-sm text-[#4F5B6A] max-w-md mx-auto">
+                  Thank you for contacting <span className="whitespace-nowrap font-semibold">WISE-Teck</span>. An institutional coordinator will respond to your submission within one business day.
                 </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="mt-4 text-xs font-semibold text-[#5F2DEE] hover:underline"
-                >
-                  Send another message
-                </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Full Name */}
+                {/* Inquiry Type Radio / Pill selection */}
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#0B1F3A] mb-3">
+                    Inquiry Type <span className="text-[#5F2DEE]">*</span>
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <label className="flex items-center gap-3 p-4 rounded-xl border border-[#E2E8F0] hover:border-[#5F2DEE] cursor-pointer transition-colors bg-[#F8FAFC]">
+                      <input
+                        type="radio"
+                        name="inquiryType"
+                        value="incubation"
+                        defaultChecked
+                        className="text-[#5F2DEE] focus:ring-[#5F2DEE]"
+                      />
+                      <span className="text-xs font-bold text-[#0B1F3A]">Student / Incubation Track</span>
+                    </label>
+                    <label className="flex items-center gap-3 p-4 rounded-xl border border-[#E2E8F0] hover:border-[#5F2DEE] cursor-pointer transition-colors bg-[#F8FAFC]">
+                      <input
+                        type="radio"
+                        name="inquiryType"
+                        value="corporate"
+                        className="text-[#5F2DEE] focus:ring-[#5F2DEE]"
+                      />
+                      <span className="text-xs font-bold text-[#0B1F3A]">Corporate / Tech Services</span>
+                    </label>
+                  </div>
+                </div>
+
+                {/* Name & Email Fields */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-xs font-semibold text-[#0B1F3A] mb-1.5">
-                      Full Name <span className="text-red-500">*</span>
+                    <label htmlFor="contact-name" className="block text-xs font-bold uppercase tracking-wider text-[#0B1F3A] mb-2">
+                      Full Name <span className="text-[#5F2DEE]">*</span>
                     </label>
                     <input
+                      id="contact-name"
                       type="text"
-                      id="name"
-                      name="name"
                       required
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="e.g. Muhammad Ahmed"
-                      className="w-full px-3.5 py-2.5 rounded-md bg-white border border-[#CBD5E1] text-sm text-[#0B1F3A] focus:outline-none focus:border-[#0B1F3A] transition-colors"
+                      placeholder="e.g. Ahmad Khan"
+                      className="w-full px-4 py-3.5 rounded-xl border border-[#E2E8F0] text-sm text-[#0B1F3A] bg-[#F8FAFC] focus:bg-white focus:outline-none focus:border-[#5F2DEE] focus:ring-1 focus:ring-[#5F2DEE] transition-all"
                     />
                   </div>
-
-                  {/* Email */}
                   <div>
-                    <label htmlFor="email" className="block text-xs font-semibold text-[#0B1F3A] mb-1.5">
-                      Email Address <span className="text-red-500">*</span>
+                    <label htmlFor="contact-email" className="block text-xs font-bold uppercase tracking-wider text-[#0B1F3A] mb-2">
+                      Email Address <span className="text-[#5F2DEE]">*</span>
                     </label>
                     <input
+                      id="contact-email"
                       type="email"
-                      id="email"
-                      name="email"
                       required
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="name@organization.com"
-                      className="w-full px-3.5 py-2.5 rounded-md bg-white border border-[#CBD5E1] text-sm text-[#0B1F3A] focus:outline-none focus:border-[#0B1F3A] transition-colors"
+                      placeholder="e.g. ahmad@example.com"
+                      className="w-full px-4 py-3.5 rounded-xl border border-[#E2E8F0] text-sm text-[#0B1F3A] bg-[#F8FAFC] focus:bg-white focus:outline-none focus:border-[#5F2DEE] focus:ring-1 focus:ring-[#5F2DEE] transition-all"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Phone */}
+                {/* Phone & Subject */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="phone" className="block text-xs font-semibold text-[#0B1F3A] mb-1.5">
-                      Contact Number <span className="text-red-500">*</span>
+                    <label htmlFor="contact-phone" className="block text-xs font-bold uppercase tracking-wider text-[#0B1F3A] mb-2">
+                      Phone / WhatsApp Number
                     </label>
                     <input
+                      id="contact-phone"
                       type="tel"
-                      id="phone"
-                      name="phone"
-                      required
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="+92 300 0000000"
-                      className="w-full px-3.5 py-2.5 rounded-md bg-white border border-[#CBD5E1] text-sm text-[#0B1F3A] focus:outline-none focus:border-[#0B1F3A] transition-colors"
+                      placeholder="e.g. +92 300 1234567"
+                      className="w-full px-4 py-3.5 rounded-xl border border-[#E2E8F0] text-sm text-[#0B1F3A] bg-[#F8FAFC] focus:bg-white focus:outline-none focus:border-[#5F2DEE] focus:ring-1 focus:ring-[#5F2DEE] transition-all"
                     />
                   </div>
-
-                  {/* Inquiry Type */}
                   <div>
-                    <label htmlFor="interest" className="block text-xs font-semibold text-[#0B1F3A] mb-1.5">
-                      Inquiry Category
+                    <label htmlFor="contact-track" className="block text-xs font-bold uppercase tracking-wider text-[#0B1F3A] mb-2">
+                      Area of Interest
                     </label>
                     <select
-                      id="interest"
-                      name="interest"
-                      value={formData.interest}
-                      onChange={handleChange}
-                      className="w-full px-3.5 py-2.5 rounded-md bg-white border border-[#CBD5E1] text-sm text-[#0B1F3A] focus:outline-none focus:border-[#0B1F3A] transition-colors"
+                      id="contact-track"
+                      className="w-full px-4 py-3.5 rounded-xl border border-[#E2E8F0] text-sm text-[#0B1F3A] bg-[#F8FAFC] focus:bg-white focus:outline-none focus:border-[#5F2DEE] focus:ring-1 focus:ring-[#5F2DEE] transition-all"
                     >
-                      <option value="incubation">Student Admission & Incubation</option>
+                      <option value="software">Software Development Incubator</option>
+                      <option value="ai">AI & Data Science Incubator</option>
+                      <option value="marketing">Digital Marketing Incubator</option>
+                      <option value="ecommerce">E-Commerce Incubator</option>
+                      <option value="design">Graphic Design & Video Incubator</option>
+                      <option value="startup">Startup & Entrepreneurship</option>
                       <option value="services">Corporate Software Services</option>
-                      <option value="navttc">NAVTTC / Skills Certification</option>
-                      <option value="partnership">Institutional Partnership</option>
+                      <option value="other">General Institutional Inquiry</option>
                     </select>
                   </div>
                 </div>
 
                 {/* Message */}
                 <div>
-                  <label htmlFor="message" className="block text-xs font-semibold text-[#0B1F3A] mb-1.5">
-                    Message Details <span className="text-red-500">*</span>
+                  <label htmlFor="contact-msg" className="block text-xs font-bold uppercase tracking-wider text-[#0B1F3A] mb-2">
+                    Message / Project Scope <span className="text-[#5F2DEE]">*</span>
                   </label>
                   <textarea
-                    id="message"
-                    name="message"
+                    id="contact-msg"
                     rows={4}
                     required
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Provide details about your admission requirements or corporate project specifications..."
-                    className="w-full px-3.5 py-2.5 rounded-md bg-white border border-[#CBD5E1] text-sm text-[#0B1F3A] focus:outline-none focus:border-[#0B1F3A] transition-colors resize-none"
+                    placeholder="Tell us about your background, desired incubation track, or business software requirements..."
+                    className="w-full px-4 py-3.5 rounded-xl border border-[#E2E8F0] text-sm text-[#0B1F3A] bg-[#F8FAFC] focus:bg-white focus:outline-none focus:border-[#5F2DEE] focus:ring-1 focus:ring-[#5F2DEE] transition-all resize-y"
                   />
                 </div>
 
-                {/* Submit Button - NAVY (#0B1F3A), NOT Orange */}
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 rounded-md bg-[#0B1F3A] text-white font-semibold text-sm hover:bg-[#163259] transition-colors"
-                  >
-                    <Send className="w-4 h-4" />
-                    <span>Submit Inquiry</span>
-                  </button>
-                </div>
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-[#0B1F3A] text-white font-bold text-base hover:bg-[#163259] transition-colors shadow-sm cursor-pointer"
+                >
+                  <span>Submit Institutional Inquiry</span>
+                  <Send className="w-4 h-4" />
+                </button>
 
               </form>
             )}

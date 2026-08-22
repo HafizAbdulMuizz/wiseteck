@@ -13,11 +13,33 @@ import {
   EcommerceColorIcon,
 } from "@/components/OriginalIcons";
 
+/**
+ * Section 6 — Corporate Technology Services
+ *
+ * Confirmed 11 Services (from approved Profile document):
+ * 1. Software Development
+ * 2. Web Development
+ * 3. Mobile Application Development
+ * 4. Artificial Intelligence & Machine Learning Solutions
+ * 5. Data Analytics & Business Intelligence
+ * 6. Business Automation Services (exact Profile name)
+ * 7. UI/UX Designing & Prototyping
+ * 8. Digital Marketing Services
+ * 9. WordPress Development
+ * 10. Shopify Solutions (exact Profile name)
+ * 11. E-Commerce Solutions (exact Profile item)
+ *
+ * Rules:
+ * - Large-scale grouped/editorial presentation (not 11 tiny cards)
+ * - Communicate WISE-Teck as a genuine corporate technology services firm
+ * - Left alignment is permitted for horizontal list-style rows inside grouped cards
+ */
+
 export default function CorporateServicesSection() {
   const serviceGroups = [
     {
       groupTitle: "Software & Web Engineering",
-      groupBadge: "Engineering",
+      groupBadge: "Engineering Division",
       services: [
         {
           name: "Software Development",
@@ -26,7 +48,7 @@ export default function CorporateServicesSection() {
         },
         {
           name: "Web Development",
-          desc: "Modern responsive web applications built with Next.js, React, Node, and secure REST/GraphQL APIs.",
+          desc: "Modern responsive web applications built with Next.js, React, Node, and secure API architectures.",
           icon: WebDevColorIcon,
         },
         {
@@ -37,22 +59,22 @@ export default function CorporateServicesSection() {
       ],
     },
     {
-      groupTitle: "AI, Data & Business Automation",
+      groupTitle: "AI, Data & Automation",
       groupBadge: "Intelligent Systems",
       services: [
         {
-          name: "AI & Machine Learning Solutions",
-          desc: "Predictive models, natural language processing, and custom AI pipeline integration.",
+          name: "Artificial Intelligence & Machine Learning Solutions",
+          desc: "Predictive modeling, natural language processing, LLM workflows, and custom AI pipeline integrations.",
           icon: AIDataColorIcon,
         },
         {
           name: "Data Analytics & Business Intelligence",
-          desc: "Interactive dashboards, data warehouse modeling, and actionable business reporting.",
+          desc: "Interactive reporting dashboards, data warehouse modeling, and actionable business intelligence.",
           icon: AIDataColorIcon,
         },
         {
           name: "Business Automation Services",
-          desc: "Workflow automation, robotic process automation (RPA), and enterprise system integration.",
+          desc: "End-to-end workflow automation, robotic process automation (RPA), and enterprise system integration.",
           icon: AutomationColorIcon,
         },
       ],
@@ -63,19 +85,19 @@ export default function CorporateServicesSection() {
       services: [
         {
           name: "UI/UX Designing & Prototyping",
-          desc: "User research, wireframing, high-fidelity Figma prototypes, and complete design systems.",
+          desc: "User research, wireframing, high-fidelity Figma prototypes, and complete enterprise design systems.",
           icon: UIUXColorIcon,
         },
         {
           name: "Digital Marketing Services",
-          desc: "Targeted PPC campaigns, search engine optimization, content strategy, and social lead generation.",
+          desc: "Targeted PPC campaigns, search engine optimization, content strategy, and multi-channel lead generation.",
           icon: MarketingColorIcon,
         },
       ],
     },
     {
-      groupTitle: "Commerce & Platform Solutions",
-      groupBadge: "E-Commerce",
+      groupTitle: "E-Commerce & Digital Commerce",
+      groupBadge: "Commerce Division",
       services: [
         {
           name: "WordPress Development",
@@ -89,7 +111,7 @@ export default function CorporateServicesSection() {
         },
         {
           name: "E-Commerce Solutions",
-          desc: "Omnichannel retail systems, multi-currency checkout, inventory sync, and custom marketplaces.",
+          desc: "Omnichannel retail systems, multi-currency checkout, inventory sync, and custom digital marketplaces.",
           icon: EcommerceColorIcon,
         },
       ],
@@ -100,27 +122,27 @@ export default function CorporateServicesSection() {
     <section id="services" className="section-padding bg-[#0B1F3A] text-white relative">
       <div className="site-container">
         
-        {/* Header with Title & Commercial Positioning */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-14 pb-8 border-b border-white/10">
+        {/* Header with Commercial Positioning */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16 pb-8 border-b border-white/10">
           <div className="lg:col-span-8">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-white/10 border border-white/15 mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#5F2DEE]" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-white/90">
-                Corporate Technology Division
+              <span className="text-[11px] font-bold uppercase tracking-widest text-white/90">
+                Section 6 · Corporate Technology Division
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-[36px] font-bold text-white leading-tight mb-3 [text-wrap:balance]">
+            <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-white leading-tight mb-4 [text-wrap:balance]">
               Professional Technology & Software Services
             </h2>
-            <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
-              In addition to incubation, <span className="whitespace-nowrap">WISE-Teck</span> operates as a dedicated commercial software and technology partner. We engineer high-reliability digital solutions for national and international businesses.
+            <p className="text-lg text-slate-300 max-w-2xl leading-relaxed">
+              In addition to incubation, <span className="whitespace-nowrap font-semibold text-white">WISE-Teck</span> operates as a dedicated commercial technology and digital solutions company — engineering high-reliability software, AI systems, and e-commerce platforms for national and international businesses.
             </p>
           </div>
 
           <div className="lg:col-span-4 flex lg:justify-end">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg bg-white text-[#0B1F3A] font-bold text-sm hover:bg-slate-100 transition-colors shadow-sm"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-white text-[#0B1F3A] font-bold text-base hover:bg-slate-100 transition-colors shadow-sm"
             >
               <span>Discuss Your Project</span>
               <ArrowRight className="w-4 h-4 text-[#0B1F3A]" />
@@ -128,12 +150,12 @@ export default function CorporateServicesSection() {
           </div>
         </div>
 
-        {/* Grouped Multi-Column Presentation with Original Full-Color Icons */}
+        {/* 4 Grouped Cards (2x2 Grid) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {serviceGroups.map((group, idx) => (
             <div
               key={idx}
-              className="bg-white/5 border border-white/10 rounded-2xl p-8 sm:p-9 flex flex-col justify-between h-full"
+              className="bg-white/5 border border-white/10 rounded-2xl p-8 sm:p-10 flex flex-col justify-between h-full"
             >
               <div>
                 {/* Group Header */}
@@ -147,19 +169,19 @@ export default function CorporateServicesSection() {
                 </div>
 
                 {/* Sub-services list with Original Full-Color Icons */}
-                <div className="space-y-5">
+                <div className="space-y-6">
                   {group.services.map((service, sIdx) => {
                     const IconComp = service.icon;
                     return (
                       <div key={sIdx} className="flex items-start gap-4">
                         <div className="shrink-0 mt-0.5 flex items-center justify-center">
-                          <IconComp className="w-9 h-9" />
+                          <IconComp className="w-8 h-8" />
                         </div>
                         <div>
-                          <h4 className="text-base font-bold text-white mb-0.5">
+                          <h4 className="text-base font-bold text-white mb-1">
                             {service.name}
                           </h4>
-                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed [text-wrap:pretty]">
+                          <p className="text-sm text-slate-300 leading-relaxed [text-wrap:pretty]">
                             {service.desc}
                           </p>
                         </div>

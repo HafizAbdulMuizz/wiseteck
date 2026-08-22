@@ -9,15 +9,33 @@ import {
   StartupColorIcon,
 } from "@/components/OriginalIcons";
 
+/**
+ * Section 5 — Our Incubators
+ *
+ * Exact 6 Incubators (as approved in Structure document):
+ * - Software Development Incubator
+ * - Artificial Intelligence & Data Science Incubator
+ * - Digital Marketing Incubator
+ * - E-Commerce Incubator
+ * - Graphic Design & Video Production Incubator
+ * - Startup & Entrepreneurship Incubator
+ *
+ * Rules:
+ * - Max 3 cards per row on desktop (3x2 grid)
+ * - Generous internal card padding (32-40px: p-8 sm:p-10)
+ * - Centered icon + heading composition
+ * - Identical card height per row via vertical centering and consistent layout
+ */
+
 export default function IncubatorsSection() {
   const incubators = [
     {
       id: "software",
       title: "Software Development Incubator",
       icon: SoftwareDevColorIcon,
-      focus: "Full-Stack • Mobile • Cloud Architecture",
+      focus: "Full-Stack • Mobile • Cloud Microservices",
       description:
-        "Equipping developers to engineer scalable web platforms, native mobile applications, and enterprise microservices using modern framework architectures.",
+        "Equipping developers to engineer enterprise web platforms, native mobile applications, and scalable microservices architectures.",
     },
     {
       id: "ai-data",
@@ -25,7 +43,7 @@ export default function IncubatorsSection() {
       icon: AIDataColorIcon,
       focus: "Machine Learning • Data Analytics • Automation",
       description:
-        "Training technical practitioners in production AI modeling, automated data pipelines, predictive intelligence, and commercial workflow integrations.",
+        "Training technical practitioners in production AI modeling, automated data pipelines, predictive intelligence, and commercial integrations.",
     },
     {
       id: "marketing",
@@ -33,7 +51,7 @@ export default function IncubatorsSection() {
       icon: MarketingColorIcon,
       focus: "Performance Marketing • SEO • Growth",
       description:
-        "Mastering data-driven customer acquisition, conversion rate optimization, search ranking architecture, and enterprise digital campaigns.",
+        "Mastering data-driven customer acquisition, conversion optimization, search ranking architecture, and enterprise digital campaigns.",
     },
     {
       id: "ecommerce",
@@ -41,7 +59,7 @@ export default function IncubatorsSection() {
       icon: EcommerceColorIcon,
       focus: "Shopify • Multi-Vendor • Global Marketplaces",
       description:
-        "Building end-to-end commercial storefronts, dropshipping ecosystems, automated inventory systems, and cross-border digital retail solutions.",
+        "Building turnkey commercial storefronts, dropshipping ecosystems, automated inventory synchronization, and digital retail platforms.",
     },
     {
       id: "design-video",
@@ -49,7 +67,7 @@ export default function IncubatorsSection() {
       icon: DesignVideoColorIcon,
       focus: "UI/UX • Commercial Video • Visual Identity",
       description:
-        "Producing high-fidelity UI/UX design systems, commercial video production, interactive motion assets, and comprehensive brand collateral.",
+        "Producing high-fidelity UI/UX design systems, commercial video production, interactive motion assets, and brand design collateral.",
     },
     {
       id: "startup",
@@ -57,7 +75,7 @@ export default function IncubatorsSection() {
       icon: StartupColorIcon,
       focus: "Venture Ideation • Product Validation • Seed Scale",
       description:
-        "Guiding student founders through rapid product validation, legal governance, business unit economics, pitch decks, and investor readiness.",
+        "Guiding student founders through rapid product validation, legal governance, unit economics, investor pitch decks, and commercial launch.",
     },
   ];
 
@@ -66,40 +84,40 @@ export default function IncubatorsSection() {
       <div className="site-container">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-14 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-white border border-[#E2E8F0] mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#5F2DEE]" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#0B1F3A]">
-              Specialized Incubation Tracks
+        <div className="max-w-3xl mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E2E8F0] bg-white mb-6">
+            <span className="w-2 h-2 rounded-full bg-[#5F2DEE] shrink-0" />
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[#0B1F3A]">
+              Section 5 · Specialized Incubation Tracks
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-[36px] font-bold text-[#0B1F3A] leading-tight mb-4 [text-wrap:balance]">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0B1F3A] leading-tight mb-4 [text-wrap:balance]">
             Our Six Technology Incubators
           </h2>
-          <p className="text-base sm:text-lg text-[#4F5B6A] leading-relaxed max-w-2xl">
-            Operating from our centralized facilities in Lahore, <span className="whitespace-nowrap">WISE-Teck</span> provides dedicated physical spaces, specialized mentorship, and compute workstations across six high-growth technology domains.
+          <p className="text-lg text-[#4F5B6A] leading-relaxed max-w-[52ch]">
+            Operating from our centralized facilities in Lahore, <span className="whitespace-nowrap font-semibold text-[#0B1F3A]">WISE-Teck</span> provides dedicated physical workstations, specialized mentorship, and compute infrastructure across six high-growth domains.
           </p>
         </div>
 
-        {/* 3x2 Grid - Substantial cards with Original Full-Color Icons & Centered Composition */}
+        {/* 3x2 Grid - Substantial cards (Max 3 per row on desktop) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {incubators.map((incubator) => {
             const IconComponent = incubator.icon;
             return (
               <div
                 key={incubator.id}
-                className="bg-white border border-[#E2E8F0] rounded-xl p-8 sm:p-9 flex flex-col justify-between transition-all duration-200 hover:border-[#CBD5E1] hover:shadow-sm group h-full text-center"
+                className="bg-white border border-[#E2E8F0] rounded-2xl p-8 sm:p-10 flex flex-col justify-between transition-all duration-200 hover:border-[#CBD5E1] hover:shadow-sm group h-full text-center"
               >
                 <div>
                   {/* Centered Original Full-Color Icon */}
-                  <div className="flex items-center justify-center mx-auto mb-5">
+                  <div className="flex items-center justify-center mx-auto mb-6">
                     <IconComponent className="w-14 h-14" />
                   </div>
 
                   {/* Centered Badge */}
                   <div className="mb-4">
                     <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-[#5F2DEE] bg-[#5F2DEE]/10 px-3 py-1 rounded-md">
-                      Active Lab
+                      Active Lab Track
                     </span>
                   </div>
 

@@ -1,135 +1,104 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, CheckCircle2, Laptop } from "lucide-react";
-import { MicrosoftColorIcon } from "@/components/OriginalIcons";
+import { ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-white pt-14 pb-16 md:pt-20 md:pb-24 lg:pt-24 lg:pb-28 border-b border-[#E2E8F0]">
-      {/* Subtle background structural grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(#E2E8F0_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
+    <section
+      id="hero"
+      className="relative overflow-hidden bg-white border-b border-[#E2E8F0]"
+    >
+      {/* Subtle dot-grid background texture */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(#E2E8F0 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+          opacity: 0.45,
+        }}
+      />
 
       <div className="site-container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
-          {/* Left Column: Text & Actions */}
-          <div className="lg:col-span-7 flex flex-col items-start">
-            {/* Eyebrow badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[#F1F5F9] border border-[#E2E8F0] mb-6">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#5F2DEE]" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#0B1F3A]">
-                WISE Education Society • Technology & Incubation Platform
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 min-h-[88vh] items-center">
+
+          {/* ── Left column: headline + CTAs ── */}
+          <div className="py-20 lg:py-28 pr-0 lg:pr-16 xl:pr-24 flex flex-col items-start">
+
+            {/* Eyebrow */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E2E8F0] bg-[#F8FAFC] mb-8">
+              <span className="w-2 h-2 rounded-full bg-[#5F2DEE] shrink-0" />
+              <span className="text-[11px] font-bold uppercase tracking-widest text-[#0B1F3A]">
+                WISE Education Society · Lahore
               </span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] xl:text-[54px] font-bold text-[#0B1F3A] leading-[1.16] tracking-tight mb-6 [text-wrap:balance]">
-              Transforming Learning into Earning through Technology, Innovation and Entrepreneurship
+            {/* Main headline — max 2 lines */}
+            <h1 className="text-[2.6rem] sm:text-5xl lg:text-[3.25rem] xl:text-[3.6rem] font-bold text-[#0B1F3A] leading-[1.12] tracking-tight mb-6 max-w-[18ch]">
+              From Learning<br className="hidden sm:block" /> to Earning —<br className="hidden sm:block" />{" "}
+              <span className="text-[#5F2DEE]">Technology</span> that Works.
             </h1>
 
-            {/* Supporting Copy */}
-            <p className="text-base sm:text-lg text-[#4F5B6A] leading-relaxed mb-8 max-w-2xl [text-wrap:pretty]">
-              <span className="whitespace-nowrap">WISE-Teck</span> connects institutional education with real-world industry execution. 
-              We empower learners through specialized skills, physical incubation labs, and direct exposure to live corporate client projects.
+            {/* Supporting copy */}
+            <p className="text-lg text-[#4F5B6A] leading-relaxed mb-10 max-w-[42ch]">
+              <span className="whitespace-nowrap font-semibold text-[#0B1F3A]">WISE-Teck</span> is the incubation, skills development, and professional technology services platform of WISE Education Society — bridging education and enterprise.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <a
                 href="#incubators"
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg bg-[#FFB347] text-[#0B1F3A] font-bold text-base shadow-sm hover:bg-[#FFA21A] transition-colors"
+                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg bg-[#FFB347] text-[#0B1F3A] font-bold text-base hover:bg-[#FFA21A] transition-colors shadow-sm"
               >
-                <span>Join a Program</span>
-                <ArrowRight className="w-4 h-4 text-[#0B1F3A]" />
+                Join a Program
+                <ArrowRight className="w-4 h-4 shrink-0" />
               </a>
-
               <a
                 href="#services"
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg bg-white border-2 border-[#0B1F3A] text-[#0B1F3A] font-bold text-base hover:bg-[#0B1F3A]/5 transition-colors"
+                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border-2 border-[#0B1F3A] text-[#0B1F3A] font-bold text-base hover:bg-[#0B1F3A] hover:text-white transition-colors"
               >
-                <span>Corporate Services</span>
+                Corporate Services
               </a>
             </div>
 
-            {/* Institutional Trust Indicators */}
-            <div className="pt-8 border-t border-[#E2E8F0] w-full grid grid-cols-3 gap-6">
-              <div className="flex flex-col">
-                <span className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A]">6</span>
-                <span className="text-xs text-[#4F5B6A] font-semibold leading-tight mt-1">Specialized Incubators</span>
+            {/* Trust strip */}
+            <div className="mt-14 pt-8 border-t border-[#E2E8F0] flex flex-wrap gap-x-10 gap-y-4 text-sm">
+              <div>
+                <span className="block text-2xl font-extrabold text-[#0B1F3A]">6</span>
+                <span className="text-[#4F5B6A] font-medium">Technology Incubators</span>
               </div>
-              <div className="flex flex-col">
-                <span className="text-2xl sm:text-3xl font-extrabold text-[#5F2DEE]">NAVTTC</span>
-                <span className="text-xs text-[#4F5B6A] font-semibold leading-tight mt-1">Recognized Partner</span>
+              <div>
+                <span className="block text-2xl font-extrabold text-[#5F2DEE]">NAVTTC</span>
+                <span className="text-[#4F5B6A] font-medium">Affiliated Training</span>
               </div>
-              <div className="flex flex-col">
-                <span className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A]">100%</span>
-                <span className="text-xs text-[#4F5B6A] font-semibold leading-tight mt-1">Practical Project Model</span>
+              <div>
+                <span className="block text-2xl font-extrabold text-[#0B1F3A]">11</span>
+                <span className="text-[#4F5B6A] font-medium">Corporate Services</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Visual Representation & Institutional Card */}
-          <div className="lg:col-span-5 flex flex-col items-center">
-            <div className="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-8 sm:p-9 shadow-sm">
-              
-              {/* Header inside visual card */}
-              <div className="flex items-center justify-between pb-4 border-b border-[#E2E8F0] mb-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-[#0B1F3A] flex items-center justify-center text-white font-bold text-xs">
-                    WT
-                  </div>
-                  <div>
-                    <h2 className="text-sm font-bold text-[#0B1F3A]"><span className="whitespace-nowrap">WISE-Teck</span> Ecosystem</h2>
-                    <p className="text-xs text-[#4F5B6A]">Bridging Education & Enterprise</p>
-                  </div>
-                </div>
-                <span className="text-xs font-bold px-3 py-1 rounded-md bg-[#5F2DEE]/10 text-[#5F2DEE]">
-                  Lahore, PK
-                </span>
+          {/* ── Right column: primary image ── */}
+          <div className="hidden lg:flex items-stretch self-stretch">
+            <div className="relative w-full min-h-[560px] overflow-hidden">
+              <Image
+                src="/images/home/computer lab.jpeg"
+                alt="WISE-Teck technology incubation lab, Lahore"
+                fill
+                className="object-cover"
+                sizes="50vw"
+                priority
+              />
+              {/* Fade edge toward left */}
+              <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent" />
+              {/* Institutional label */}
+              <div className="absolute bottom-8 left-8 bg-white/90 backdrop-blur-sm border border-[#E2E8F0] rounded-xl px-5 py-3 shadow-sm max-w-[280px]">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#0B1F3A] mb-0.5">
+                  WISE-Teck Incubation Center
+                </p>
+                <p className="text-xs text-[#4F5B6A]">
+                  48-Main Gulberg, Lahore — Active since 2020
+                </p>
               </div>
-
-              {/* Real Classroom & Lab Image */}
-              <div className="relative w-full h-52 sm:h-60 rounded-xl overflow-hidden border border-[#E2E8F0] mb-6 bg-[#E2E8F0]">
-                <Image
-                  src="/images/home/computer lab.jpeg"
-                  alt="WISE-Teck Modern Computing Lab and Incubation Center"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 450px"
-                  priority
-                />
-              </div>
-
-              {/* Structured Key Pillars with Original Colors */}
-              <div className="space-y-3.5">
-                <div className="flex items-start gap-3.5 p-3.5 rounded-lg bg-white border border-[#E2E8F0]">
-                  <CheckCircle2 className="w-5 h-5 text-[#10B981] shrink-0 mt-0.5" />
-                  <div>
-                    <h3 className="text-sm font-bold text-[#0B1F3A]">Academic Foundation to Hands-on Lab</h3>
-                    <p className="text-xs text-[#4F5B6A] mt-0.5">Students from ICS, ADP, and Skills programs enter direct incubation.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3.5 p-3.5 rounded-lg bg-white border border-[#E2E8F0]">
-                  <div className="shrink-0 mt-0.5">
-                    <MicrosoftColorIcon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-[#0B1F3A]">Microsoft & NAVTTC Certifications</h3>
-                    <p className="text-xs text-[#4F5B6A] mt-0.5">Global examination credentials and live client deliverables.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3.5 p-3.5 rounded-lg bg-white border border-[#E2E8F0]">
-                  <Laptop className="w-5 h-5 text-[#0284C7] shrink-0 mt-0.5" />
-                  <div>
-                    <h3 className="text-sm font-bold text-[#0B1F3A]">Employment, Freelancing & Entrepreneurship</h3>
-                    <p className="text-xs text-[#4F5B6A] mt-0.5">Direct career pathways into software houses, client contracts, and startups.</p>
-                  </div>
-                </div>
-              </div>
-
             </div>
           </div>
 

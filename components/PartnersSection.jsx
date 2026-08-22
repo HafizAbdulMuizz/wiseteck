@@ -2,40 +2,56 @@ import React from "react";
 import Image from "next/image";
 import { ShieldCheck, CheckCircle2 } from "lucide-react";
 
+/**
+ * Section 9 — Partners & Clients
+ *
+ * Approved Categories (Structure document):
+ * - WISE Education Society (Official logo asset)
+ * - NAVTTC (Official logo asset)
+ * - PSDA (Regulatory Alignment)
+ * - PSDF (Skills Development Partner)
+ * - Corporate Clients & Industry Partners (Merged to reduce visual fragmentation)
+ *
+ * Rules:
+ * - Official logos rendered in 100% ORIGINAL COLORS
+ * - Clean typography for badges without logo assets
+ * - Spacious layout, generous padding (p-8)
+ */
+
 export default function PartnersSection() {
   const partners = [
     {
       name: "WISE Education Society",
       type: "Parent Institutional Body",
-      details: "Premier educational governance & academic infrastructure",
+      details: "Premier educational governance & academic infrastructure across Lahore.",
       logo: "/images/branding/wiseteck logo.png",
       isCustomImg: true,
     },
     {
       name: "NAVTTC",
       type: "Government of Pakistan",
-      details: "National Vocational & Technical Training Commission",
+      details: "National Vocational & Technical Training Commission accredited partner.",
       logo: "/images/branding/navttc-logo.png",
       isCustomImg: true,
     },
     {
       name: "PSDA",
       type: "Government of Punjab",
-      details: "Punjab Skills Development Authority Regulatory Alignment",
+      details: "Punjab Skills Development Authority regulatory curriculum alignment.",
       isBadge: true,
       code: "PSDA",
     },
     {
       name: "PSDF",
       type: "Skills Development Partner",
-      details: "Punjab Skills Development Fund Framework Collaborator",
+      details: "Punjab Skills Development Fund collaborative vocational framework.",
       isBadge: true,
       code: "PSDF",
     },
     {
-      name: "Corporate Tech Partners",
-      type: "Industry Network",
-      details: "Commercial software houses & enterprise client organizations",
+      name: "Corporate Clients & Industry Partners",
+      type: "Commercial Technology Network",
+      details: "Commercial software houses and enterprise firms engaging live project teams.",
       isBadge: true,
       code: "TECH",
     },
@@ -45,31 +61,31 @@ export default function PartnersSection() {
     <section id="partners" className="section-padding bg-white border-b border-[#E2E8F0]">
       <div className="site-container">
         
-        {/* Section Header - Left Aligned */}
-        <div className="max-w-3xl mb-14 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[#F1F5F9] border border-[#E2E8F0] mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#5F2DEE]" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#0B1F3A]">
-              Institutional Affiliations & Partners
+        {/* Section Header */}
+        <div className="max-w-3xl mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E2E8F0] bg-[#F8FAFC] mb-6">
+            <span className="w-2 h-2 rounded-full bg-[#5F2DEE] shrink-0" />
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[#0B1F3A]">
+              Section 9 · Institutional Affiliations & Partners
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-[36px] font-bold text-[#0B1F3A] leading-tight mb-4 [text-wrap:balance]">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0B1F3A] leading-tight mb-4 [text-wrap:balance]">
             Recognized by Government & Industry Leaders
           </h2>
-          <p className="text-base sm:text-lg text-[#4F5B6A] leading-relaxed max-w-2xl">
-            Our training and incubation programs operate in collaboration with national regulatory bodies, international certification standards, and commercial tech enterprises.
+          <p className="text-lg text-[#4F5B6A] leading-relaxed max-w-[52ch]">
+            Our incubation and professional training tracks operate in collaboration with national regulatory bodies, international standards, and corporate tech enterprises.
           </p>
         </div>
 
-        {/* Substantial Normalized Partner Grid (Centered Composition & Original Colors) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 items-stretch mb-12">
+        {/* Partner Cards Grid (Max 3 on medium, 5-col balanced layout with p-8) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-stretch mb-12">
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-7 sm:p-8 flex flex-col items-center text-center justify-between transition-all duration-200 hover:border-[#CBD5E1] hover:shadow-xs h-full"
+              className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-8 flex flex-col items-center text-center justify-between transition-all duration-200 hover:border-[#CBD5E1] hover:shadow-xs h-full"
             >
               {/* Logo / Badge container with generous height & original colors */}
-              <div className="h-20 w-full flex items-center justify-center mb-5">
+              <div className="h-20 w-full flex items-center justify-center mb-6">
                 {partner.isCustomImg ? (
                   <div className="relative h-14 w-36 flex items-center justify-center">
                     <Image
@@ -89,7 +105,7 @@ export default function PartnersSection() {
 
               {/* Partner Information */}
               <div className="w-full">
-                <h3 className="text-base font-bold text-[#0B1F3A] mb-1.5 leading-snug [text-wrap:balance]">
+                <h3 className="text-base font-bold text-[#0B1F3A] mb-1 leading-snug [text-wrap:balance]">
                   {partner.name}
                 </h3>
                 <span className="text-xs font-semibold text-[#5F2DEE] block mb-3">
@@ -104,7 +120,7 @@ export default function PartnersSection() {
         </div>
 
         {/* Bottom Trust Line */}
-        <div className="pt-6 border-t border-[#E2E8F0] flex flex-wrap items-center justify-start gap-8 text-xs text-[#4F5B6A]">
+        <div className="pt-8 border-t border-[#E2E8F0] flex flex-wrap items-center justify-start gap-8 text-xs text-[#4F5B6A]">
           <div className="flex items-center gap-2.5">
             <ShieldCheck className="w-5 h-5 text-[#5F2DEE]" />
             <span className="font-semibold text-[#0B1F3A]">Official NAVTTC Accredited Training Center</span>
@@ -112,7 +128,7 @@ export default function PartnersSection() {
           <span className="hidden sm:inline text-[#CBD5E1]">•</span>
           <div className="flex items-center gap-2.5">
             <CheckCircle2 className="w-5 h-5 text-[#0B1F3A]" />
-            <span className="font-semibold text-[#0B1F3A]">Microsoft Certified Curriculum & Testing Standards</span>
+            <span className="font-semibold text-[#0B1F3A]">Microsoft Certified Testing & Curriculum Standards</span>
           </div>
         </div>
 

@@ -2,34 +2,51 @@ import React from "react";
 import Image from "next/image";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 
+/**
+ * Section 7 — Featured Projects
+ *
+ * Approved Categories (Structure document):
+ * Corporate Projects · Student Projects · Websites Developed · Mobile Applications ·
+ * AI & Data Science Projects · Case Studies · Client Success Stories
+ *
+ * Rules:
+ * - Curated minimal presentation: exactly 3 substantial case study cards (max 3 per row on desktop)
+ * - Approved imagery only (from public/images/home/)
+ * - Equal height across cards
+ * - Generous internal padding (p-8 sm:p-10)
+ */
+
 export default function FeaturedProjectsSection() {
   const projects = [
     {
       id: 1,
-      title: "Enterprise Workflow & Academic Portal",
-      category: "Software & EdTech Engineering",
-      deliverable: "Custom Learning & Grading Architecture",
-      result: "Deployed across campus environments to streamline attendance, coursework, and automated grading workflows with high reliability.",
-      image: "/images/services/employee work.jpeg",
+      title: "Enterprise Academic & Workflow Management Portal",
+      category: "Corporate Projects",
+      deliverable: "Web Application & Database System",
+      result:
+        "Centralized student records, attendance automation, and course administration workflows engineered with role-based security.",
+      image: "/images/home/computer using.jpeg",
       tags: ["Next.js", "PostgreSQL", "Role-Based Access"],
     },
     {
       id: 2,
-      title: "Commercial Retail & Multi-Vendor Storefront",
-      category: "E-Commerce & Platform Solutions",
-      deliverable: "Omnichannel Shopify & Web Engine",
-      result: "High-performance commercial digital storefront integrated with automated inventory tracking and localized payment gateways.",
-      image: "/images/pathway/training room.jpeg",
-      tags: ["Shopify Liquid", "Payment APIs", "SEO Optimized"],
+      title: "Commercial Multi-Vendor Retail & E-Commerce Platform",
+      category: "Websites Developed",
+      deliverable: "Omnichannel Commerce Engine",
+      result:
+        "High-performance digital storefront integrated with automated inventory tracking, localized checkout, and payment gateway APIs.",
+      image: "/images/home/training.jpeg",
+      tags: ["Shopify Liquid", "Payment APIs", "SEO Architecture"],
     },
     {
       id: 3,
-      title: "Corporate Operations & Data Analytics Suite",
-      category: "AI & Business Automation",
-      deliverable: "Automated Reporting Dashboard",
-      result: "Centralized KPI data pipelines and executive reporting tools engineered for real-time institutional performance metrics.",
-      image: "/images/impact/meeting room 2.jpeg",
-      tags: ["Python", "PowerBI / SQL", "Automation"],
+      title: "Institutional Performance & Data Analytics Dashboard",
+      category: "AI & Data Science Projects",
+      deliverable: "Business Intelligence Suite",
+      result:
+        "Custom analytics pipelines and interactive reporting tools delivering real-time institutional metrics and KPI tracking.",
+      image: "/images/home/computer lab.jpeg",
+      tags: ["Python", "PowerBI / SQL", "Automated Pipelines"],
     },
   ];
 
@@ -38,37 +55,37 @@ export default function FeaturedProjectsSection() {
       <div className="site-container">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14 sm:mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[#F1F5F9] border border-[#E2E8F0] mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#5F2DEE]" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#0B1F3A]">
-                Case Studies & Deliverables
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E2E8F0] bg-[#F8FAFC] mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#5F2DEE] shrink-0" />
+              <span className="text-[11px] font-bold uppercase tracking-widest text-[#0B1F3A]">
+                Section 7 · Case Studies & Deliverables
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-[36px] font-bold text-[#0B1F3A] leading-tight mb-3 [text-wrap:balance]">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0B1F3A] leading-tight mb-3 [text-wrap:balance]">
               Featured Client & Incubation Projects
             </h2>
-            <p className="text-base sm:text-lg text-[#4F5B6A] leading-relaxed">
-              Every project developed at <span className="whitespace-nowrap">WISE-Teck</span> is governed by professional code quality, security audits, and real-world commercial viability.
+            <p className="text-lg text-[#4F5B6A] leading-relaxed">
+              Every deliverable developed at <span className="whitespace-nowrap font-semibold text-[#0B1F3A]">WISE-Teck</span> is governed by commercial code quality, security standards, and real-world viability.
             </p>
           </div>
 
-          <div className="flex items-center gap-2.5 text-xs font-bold text-[#0B1F3A] bg-[#F8FAFC] px-4 py-2.5 rounded-lg border border-[#E2E8F0] self-start md:self-auto shadow-2xs">
+          <div className="flex items-center gap-2 text-xs font-bold text-[#0B1F3A] bg-[#F8FAFC] px-4 py-2.5 rounded-lg border border-[#E2E8F0] self-start md:self-auto shadow-2xs">
             <CheckCircle2 className="w-4 h-4 text-[#5F2DEE]" />
             <span>Verified Commercial Deliverables</span>
           </div>
         </div>
 
-        {/* 3 Substantial Project Cards */}
+        {/* 3 Substantial Project Cards (Max 3 per row on desktop) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-white border border-[#E2E8F0] rounded-xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-[#CBD5E1] hover:shadow-md group h-full"
+              className="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-[#CBD5E1] hover:shadow-md group h-full"
             >
               <div>
-                {/* 16:9 Image container with subtle hover scale */}
+                {/* 16:9 Image Container */}
                 <div className="relative w-full aspect-video bg-[#F1F5F9] overflow-hidden">
                   <Image
                     src={project.image}
@@ -83,7 +100,7 @@ export default function FeaturedProjectsSection() {
                 </div>
 
                 {/* Card Body with Generous Padding */}
-                <div className="p-8">
+                <div className="p-8 sm:p-9">
                   <div className="min-h-[3.75rem] flex items-center mb-2">
                     <h3 className="text-xl font-bold text-[#0B1F3A] leading-snug group-hover:text-[#5F2DEE] transition-colors [text-wrap:balance]">
                       {project.title}
@@ -98,7 +115,7 @@ export default function FeaturedProjectsSection() {
                     {project.result}
                   </p>
 
-                  {/* Tags with Uniform Sizing */}
+                  {/* Tags */}
                   <div className="flex flex-wrap gap-2 pt-2 border-t border-[#F1F5F9]">
                     {project.tags.map((tag, tIdx) => (
                       <span
@@ -112,11 +129,11 @@ export default function FeaturedProjectsSection() {
                 </div>
               </div>
 
-              {/* Card Bottom */}
+              {/* Card Footer */}
               <div className="px-8 py-4 bg-[#F8FAFC] border-t border-[#E2E8F0] flex items-center justify-between text-xs font-bold text-[#0B1F3A]">
-                <span>Production Stage</span>
+                <span>Production Standard</span>
                 <span className="text-[#5F2DEE] flex items-center gap-1">
-                  <span className="whitespace-nowrap">WISE-Teck</span> Lab
+                  WISE-Teck Lab
                   <ArrowUpRight className="w-4 h-4" />
                 </span>
               </div>

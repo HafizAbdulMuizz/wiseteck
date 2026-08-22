@@ -1,101 +1,64 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
-import {
-  SoftwareDevColorIcon,
-  EduHubColorIcon,
-  StartupColorIcon,
-  SupportHubColorIcon,
-} from "@/components/OriginalIcons";
+import Image from "next/image";
 
 export default function AboutSection() {
-  const coreIdentities = [
-    {
-      icon: SoftwareDevColorIcon,
-      title: "Technology",
-      description:
-        "Developing robust software solutions, modern digital architectures, and AI-driven systems for enterprises, educational bodies, and commercial clients.",
-    },
-    {
-      icon: EduHubColorIcon,
-      title: "Skills Development",
-      description:
-        "Delivering market-driven, high-value training in emerging technologies, accredited programs, and international certifications in partnership with NAVTTC.",
-    },
-    {
-      icon: StartupColorIcon,
-      title: "Innovation & Incubation",
-      description:
-        "Nurturing student-led ventures and technical ideas within 6 specialized incubation tracks equipped with physical labs, mentorship, and project resources.",
-    },
-    {
-      icon: SupportHubColorIcon,
-      title: "Professional Services",
-      description:
-        "Executing commercial client contracts, business automation, UI/UX design, and web/mobile engineering through supervised student and professional teams.",
-    },
-  ];
-
   return (
     <section id="about" className="section-padding bg-white border-b border-[#E2E8F0]">
       <div className="site-container">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          {/* Left Column: Factual Introduction */}
-          <div className="lg:col-span-5 flex flex-col items-start">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[#F1F5F9] border border-[#E2E8F0] mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#5F2DEE]" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#0B1F3A]">
-                About <span className="whitespace-nowrap">WISE-Teck</span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+
+          {/* Left: Large editorial text block */}
+          <div className="lg:col-span-6 xl:col-span-7">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E2E8F0] bg-[#F8FAFC] mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#5F2DEE] shrink-0" />
+              <span className="text-[11px] font-bold uppercase tracking-widest text-[#0B1F3A]">
+                About WISE-Teck
               </span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl md:text-[36px] font-bold text-[#0B1F3A] leading-tight mb-6 [text-wrap:balance]">
-              Bridging Education, Technical Skills, and Enterprise Delivery
+            <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-[#0B1F3A] leading-[1.18] tracking-tight mb-6 max-w-[22ch]">
+              Where Education Meets Enterprise
             </h2>
 
-            <p className="text-base sm:text-lg text-[#4F5B6A] leading-relaxed mb-5 [text-wrap:pretty]">
-              <span className="whitespace-nowrap">WISE-Teck</span> is the dedicated technology, incubation, skills development, and professional services platform established by WISE Education Society in Lahore, Pakistan.
+            {/* Identity statement 1 — from approved Profile document */}
+            <p className="text-lg text-[#4F5B6A] leading-relaxed mb-5 max-w-[54ch]">
+              <span className="whitespace-nowrap font-semibold text-[#0B1F3A]">WISE-Teck</span> is the technology, incubation, skills development, and professional services platform of WISE Education Society — operating at the intersection of formal education and the commercial technology industry.
             </p>
 
-            <p className="text-base text-[#4F5B6A] leading-relaxed mb-8 [text-wrap:pretty]">
-              Unlike traditional institutions that stop at classroom lectures, <span className="whitespace-nowrap">WISE-Teck</span> operates as a dual-engine ecosystem: combining an innovative incubation platform with an active corporate technology services firm. We ensure every learner translates theoretical knowledge into tangible industry outcomes.
+            {/* Identity statement 2 — from approved Profile document */}
+            <p className="text-lg text-[#4F5B6A] leading-relaxed mb-8 max-w-[54ch]">
+              Beyond its educational mission, <span className="whitespace-nowrap font-semibold text-[#0B1F3A]">WISE-Teck</span> is a professional technology and digital solutions company — delivering enterprise software, AI systems, e-commerce platforms, and digital services to national and international clients.
             </p>
 
-            <a
-              href="#ecosystem"
-              className="inline-flex items-center gap-2 text-sm font-bold text-[#5F2DEE] hover:text-[#0B1F3A] transition-colors group"
-            >
-              <span>Explore the complete institutional ecosystem</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
+            {/* Two anchors — one per identity */}
+            <div className="flex flex-col sm:flex-row gap-6 pt-2">
+              <div className="flex items-start gap-3">
+                <div className="w-1 h-10 rounded-full bg-[#5F2DEE] shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-sm font-bold text-[#0B1F3A] mb-0.5">Incubation & Skills</p>
+                  <p className="text-sm text-[#4F5B6A]">Six specialized tracks, NAVTTC-affiliated training, and career placement support</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-1 h-10 rounded-full bg-[#FFB347] shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-sm font-bold text-[#0B1F3A] mb-0.5">Corporate Technology</p>
+                  <p className="text-sm text-[#4F5B6A]">Professional services firm delivering real client projects through supervised teams</p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Right Column: Four Core Identities List with Original Full-Color Icons */}
-          <div className="lg:col-span-7 bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-8 sm:p-10 shadow-xs">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#0B1F3A] pb-4 mb-3 border-b border-[#E2E8F0] flex items-center justify-between">
-              <span>Four Core Pillars of <span className="whitespace-nowrap">WISE-Teck</span></span>
-              <span className="text-[11px] text-[#5F2DEE] font-bold">Institutional Standards</span>
-            </div>
-
-            <div className="divide-y divide-[#E2E8F0]">
-              {coreIdentities.map((item, index) => {
-                const IconComponent = item.icon;
-                return (
-                  <div key={index} className="py-6 first:pt-3 last:pb-2 flex items-start gap-5">
-                    <div className="shrink-0 flex items-center justify-center">
-                      <IconComponent className="w-12 h-12" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-[#0B1F3A] mb-1.5 leading-snug">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-[#4F5B6A] leading-relaxed [text-wrap:pretty]">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
+          {/* Right: Supporting image */}
+          <div className="lg:col-span-6 xl:col-span-5">
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm bg-[#F1F5F9]">
+              <Image
+                src="/images/home/executives .jpeg"
+                alt="WISE-Teck institutional leadership and professional team"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
             </div>
           </div>
 
