@@ -7,7 +7,7 @@ import { MapPin, Phone, Mail } from "lucide-react";
  * Global Institutional Footer
  *
  * Rules:
- * - Logo treatment on dark background: seamless, no jarring stark white box
+ * - Logo treatment on dark background: seamless reversed white lockup directly on dark surface (no white box)
  * - Original asset proportions
  * - Static copyright year to prevent SSR hydration mismatches
  * - Navigation links + legal notices
@@ -15,14 +15,14 @@ import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function Footer() {
   const quickLinks = [
-    { label: "About WISE-Teck", href: "#about" },
-    { label: "The WISE Ecosystem", href: "#ecosystem" },
-    { label: "Learning to Earning Model", href: "#model" },
-    { label: "Our Incubators", href: "#incubators" },
-    { label: "Corporate Services", href: "#services" },
-    { label: "Featured Projects", href: "#projects" },
-    { label: "Success Stories", href: "#stories" },
-    { label: "Partners & Clients", href: "#partners" },
+    { label: "About WISE-Teck", href: "/about" },
+    { label: "The WISE Ecosystem", href: "/#ecosystem" },
+    { label: "Learning to Earning Model", href: "/#model" },
+    { label: "Our Incubators", href: "/#incubators" },
+    { label: "Corporate Services", href: "/#services" },
+    { label: "Featured Projects", href: "/#projects" },
+    { label: "Success Stories", href: "/#stories" },
+    { label: "Partners & Clients", href: "/#partners" },
   ];
 
   const incubatorTracks = [
@@ -43,16 +43,15 @@ export default function Footer() {
           
           {/* Column 1: Brand & Institutional Identity */}
           <div className="lg:col-span-4 flex flex-col items-start">
-            {/* Logo on clean light pill suited for dark background without a jarring square box */}
-            <div className="bg-white/95 rounded-xl px-4 py-2 mb-6 border border-white/20 shadow-xs inline-flex items-center">
-              <div className="relative h-10 w-40">
-                <Image
-                  src="/images/branding/wiseteck logo.png"
-                  alt="WISE-Teck Official Logo"
-                  fill
-                  className="object-contain object-left"
-                />
-              </div>
+            
+            {/* Seamless Reversed White Logo Lockup — Zero White Box */}
+            <div className="relative h-11 w-44 sm:w-48 mb-6">
+              <Image
+                src="/images/branding/wiseteck logo.png"
+                alt="WISE-Teck Official Logo"
+                fill
+                className="object-contain object-left brightness-0 invert opacity-95"
+              />
             </div>
 
             <p className="text-sm text-slate-300 leading-relaxed mb-6 max-w-sm [text-wrap:pretty]">
@@ -73,12 +72,12 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm text-slate-300">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="hover:text-[#FFB347] transition-colors inline-flex items-center gap-1"
                   >
                     <span>{link.label}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -92,9 +91,9 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm text-slate-300">
               {incubatorTracks.map((track) => (
                 <li key={track}>
-                  <a href="#incubators" className="hover:text-[#5F2DEE] transition-colors">
+                  <Link href="/#incubators" className="hover:text-[#5F2DEE] transition-colors">
                     {track}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -129,9 +128,9 @@ export default function Footer() {
             © 2025–2026 <span className="whitespace-nowrap text-white font-semibold">WISE-Teck</span>. All rights reserved. Governed by WISE Education Society Board.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#about" className="hover:text-white transition-colors">Privacy & Governance</a>
-            <a href="#contact" className="hover:text-white transition-colors">Admissions Desk</a>
-            <a href="#services" className="hover:text-white transition-colors">Enterprise Terms</a>
+            <Link href="/about" className="hover:text-white transition-colors">Privacy & Governance</Link>
+            <Link href="/#contact" className="hover:text-white transition-colors">Admissions Desk</Link>
+            <Link href="/#services" className="hover:text-white transition-colors">Enterprise Terms</Link>
           </div>
         </div>
 
