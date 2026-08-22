@@ -10,7 +10,7 @@ export default function Navbar() {
 
   const navLinks = [
     { label: "About", href: "/about" },
-    { label: "Ecosystem", href: "/#ecosystem" },
+    { label: "Ecosystem", href: "/ecosystem" },
     { label: "Model", href: "/#model" },
     { label: "Incubators", href: "/#incubators" },
     { label: "Services", href: "/#services" },
