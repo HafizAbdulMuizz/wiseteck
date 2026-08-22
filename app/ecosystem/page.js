@@ -143,7 +143,7 @@ export default function EcosystemPage() {
                       "Free Lunch",
                     ].map((item) => (
                       <li key={item} className="flex items-center gap-2.5 p-3 rounded-lg bg-white border border-[#E2E8F0]">
-                        <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-[#5F2DEE] shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -465,7 +465,7 @@ export default function EcosystemPage() {
                             {step.num}
                           </div>
                         </div>
-                        <span className={`text-xs font-bold leading-snug break-words w-full px-0.5 ${idx === ecosystemJourney.length - 1 ? "text-[#FFB347]" : "text-white"}`}>
+                        <span className={`text-xs font-bold leading-snug w-full px-0.5 [overflow-wrap:normal] [word-break:keep-all] hyphens-none ${idx === ecosystemJourney.length - 1 ? "text-[#FFB347]" : "text-white"}`}>
                           {step.title}
                         </span>
                       </div>
