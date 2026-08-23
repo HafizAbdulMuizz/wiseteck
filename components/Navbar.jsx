@@ -16,8 +16,8 @@ export default function Navbar() {
     { label: "Ecosystem", href: "/ecosystem" },
     { label: "Incubators", href: "/incubators" },
     { label: "Services", href: "/services" },
+    { label: "Projects", href: "/projects" },
     { label: "Model", href: "/#model" },
-    { label: "Projects", href: "/#projects" },
     { label: "Stories", href: "/#stories" },
     { label: "Partners", href: "/#partners" },
   ];
