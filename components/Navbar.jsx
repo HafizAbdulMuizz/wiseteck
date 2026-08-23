@@ -18,8 +18,7 @@ export default function Navbar() {
     { label: "Services", href: "/services" },
     { label: "Projects", href: "/projects" },
     { label: "Stories", href: "/stories" },
-    { label: "Model", href: "/#model" },
-    { label: "Partners", href: "/#partners" },
+    { label: "Coming Soon", href: "#", disabled: true },
   ];
 
   return (
@@ -43,6 +42,19 @@ export default function Navbar() {
           {/* Desktop Navigation Links with Premium Corporate Hover Effect */}
           <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => {
+              if (link.disabled) {
+                return (
+                  <span
+                    key={link.label}
+                    onClick={(e) => e.preventDefault()}
+                    className="py-2 text-xs font-bold uppercase tracking-wider text-slate-300 cursor-not-allowed select-none"
+                    title="Coming Soon"
+                  >
+                    <span>{link.label}</span>
+                  </span>
+                );
+              }
+
               const isActive = pathname === link.href;
               return (
                 <Link
@@ -93,16 +105,30 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="lg:hidden bg-white border-b border-[#E2E8F0] px-6 py-6 shadow-md">
           <nav className="flex flex-col space-y-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-sm font-bold text-[#0B1F3A] hover:text-[#5F2DEE] py-2 border-b border-slate-100 transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              if (link.disabled) {
+                return (
+                  <span
+                    key={link.label}
+                    onClick={(e) => e.preventDefault()}
+                    className="text-sm font-bold text-slate-300 py-2 border-b border-slate-100 cursor-not-allowed select-none"
+                  >
+                    {link.label}
+                  </span>
+                );
+              }
+
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="text-sm font-bold text-[#0B1F3A] hover:text-[#5F2DEE] py-2 border-b border-slate-100 transition-colors"
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <div className="pt-3">
               <Link
                 href="/#contact"
