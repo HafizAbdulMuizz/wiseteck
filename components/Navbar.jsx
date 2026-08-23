@@ -14,8 +14,8 @@ export default function Navbar() {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Ecosystem", href: "/ecosystem" },
+    { label: "Incubators", href: "/incubators" },
     { label: "Model", href: "/#model" },
-    { label: "Incubators", href: "/#incubators" },
     { label: "Services", href: "/#services" },
     { label: "Projects", href: "/#projects" },
     { label: "Stories", href: "/#stories" },
@@ -41,7 +41,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation Links with Premium Corporate Hover Effect */}
-          <nav className="hidden lg:flex items-center gap-7 xl:gap-9">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
