@@ -25,7 +25,7 @@ export default function FeaturedProjectsSection() {
       deliverable: "Web Application & Database System",
       result:
         "Centralized student records, attendance automation, and course administration workflows engineered with role-based security.",
-      image: "/images/home/computer using.jpeg",
+      image: "/images/projects/academic-portal.jpg",
       tags: ["Next.js", "PostgreSQL", "Role-Based Access"],
     },
     {
@@ -35,7 +35,7 @@ export default function FeaturedProjectsSection() {
       deliverable: "Omnichannel Commerce Engine",
       result:
         "High-performance digital storefront integrated with automated inventory tracking, localized checkout, and payment gateway APIs.",
-      image: "/images/home/training.jpeg",
+      image: "/images/projects/ecommerce-platform.jpg",
       tags: ["Shopify Liquid", "Payment APIs", "SEO Architecture"],
     },
     {
@@ -45,7 +45,7 @@ export default function FeaturedProjectsSection() {
       deliverable: "Business Intelligence Suite",
       result:
         "Custom analytics pipelines and interactive reporting tools delivering real-time institutional metrics and KPI tracking.",
-      image: "/images/home/computer lab.jpeg",
+      image: "/images/projects/analytics-dashboard.jpg",
       tags: ["Python", "PowerBI / SQL", "Automated Pipelines"],
     },
   ];

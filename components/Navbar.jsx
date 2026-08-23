@@ -3,10 +3,12 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   const navLinks = [
     { label: "Home", href: "/" },
@@ -38,17 +40,30 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links with Premium Corporate Hover Effect */}
           <nav className="hidden lg:flex items-center gap-7 xl:gap-9">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-xs font-bold uppercase tracking-wider text-[#4F5B6A] hover:text-[#0B1F3A] transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={`group relative py-2 text-xs font-bold uppercase tracking-wider transition-colors duration-200 ${
+                    isActive ? "text-[#0B1F3A]" : "text-[#4F5B6A] hover:text-[#5F2DEE]"
+                  }`}
+                >
+                  <span>{link.label}</span>
+                  {/* Refined animated underline indicator (180-220ms smooth scale from center) */}
+                  <span
+                    className={`absolute bottom-0 left-0 w-full h-[2px] rounded-full transition-transform duration-200 ease-out origin-center ${
+                      isActive
+                        ? "bg-[#5F2DEE] scale-x-100"
+                        : "bg-[#5F2DEE] scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Action Button */}
@@ -83,7 +98,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-sm font-bold text-[#0B1F3A] hover:text-[#5F2DEE] py-2 border-b border-slate-100"
+                className="text-sm font-bold text-[#0B1F3A] hover:text-[#5F2DEE] py-2 border-b border-slate-100 transition-colors"
               >
                 {link.label}
               </Link>
@@ -92,7 +107,7 @@ export default function Navbar() {
               <Link
                 href="/#contact"
                 onClick={() => setMobileOpen(false)}
-                className="w-full inline-flex items-center justify-center py-3 rounded-lg bg-[#0B1F3A] text-white text-xs font-bold"
+                className="w-full inline-flex items-center justify-center py-3 rounded-lg bg-[#0B1F3A] text-white text-xs font-bold hover:bg-[#163259] transition-colors"
               >
                 <span>Contact Desk</span>
               </Link>
