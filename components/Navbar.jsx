@@ -17,8 +17,8 @@ export default function Navbar() {
     { label: "Incubators", href: "/incubators" },
     { label: "Services", href: "/services" },
     { label: "Projects", href: "/projects" },
+    { label: "Stories", href: "/stories" },
     { label: "Model", href: "/#model" },
-    { label: "Stories", href: "/#stories" },
     { label: "Partners", href: "/#partners" },
   ];
 
