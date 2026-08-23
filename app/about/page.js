@@ -128,7 +128,7 @@ export default function AboutPage() {
         {/* ========================================================================= */}
         {/* SECTION 2 — MISSION (Bold, Spacious, Confident Quote Band)                */}
         {/* ========================================================================= */}
-        <section id="mission" className="section-padding bg-[#0B1F3A] text-white relative overflow-hidden">
+        <section id="mission" className="py-14 lg:py-16 bg-[#0B1F3A] text-white relative overflow-hidden">
           <div className="site-container">
             <div className="max-w-4xl mx-auto text-center">
               
@@ -160,7 +160,7 @@ export default function AboutPage() {
           <div className="site-container">
             
             {/* Header */}
-            <div className="max-w-3xl mb-14 lg:mb-16">
+            <div className="max-w-3xl mb-10 lg:mb-12">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E2E8F0] bg-white mb-6 shadow-2xs">
                 <Compass className="w-3.5 h-3.5 text-[#5F2DEE]" />
                 <span className="text-[11px] font-bold uppercase tracking-widest text-[#0B1F3A]">
@@ -256,7 +256,7 @@ export default function AboutPage() {
           <div className="site-container">
             
             {/* Header */}
-            <div className="max-w-3xl mb-14 lg:mb-16">
+            <div className="max-w-3xl mb-10 lg:mb-12">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E2E8F0] bg-[#F8FAFC] mb-6 shadow-2xs">
                 <TrendingUp className="w-3.5 h-3.5 text-[#5F2DEE]" />
                 <span className="text-[11px] font-bold uppercase tracking-widest text-[#0B1F3A]">
@@ -361,7 +361,7 @@ export default function AboutPage() {
           <div className="site-container">
             
             {/* Header with Exact Approved Heading */}
-            <div className="max-w-3xl mb-14 lg:mb-16">
+            <div className="max-w-3xl mb-10 lg:mb-12">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E2E8F0] bg-white mb-6 shadow-2xs">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#5F2DEE]" />
                 <span className="text-[11px] font-bold uppercase tracking-widest text-[#0B1F3A]">
@@ -377,7 +377,7 @@ export default function AboutPage() {
             </div>
 
             {/* 2-Column Clean Running List with Large Inline Numerals (NOT 8 boxed cards) */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-14 gap-y-10 mb-14">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-8 mb-10">
               {[
                 {
                   num: "01",
@@ -464,7 +464,7 @@ export default function AboutPage() {
           <div className="site-container">
             
             {/* Header */}
-            <div className="max-w-3xl mb-14 lg:mb-16">
+            <div className="max-w-3xl mb-10 lg:mb-12">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E2E8F0] bg-[#F8FAFC] mb-6 shadow-2xs">
                 <Users2 className="w-3.5 h-3.5 text-[#5F2DEE]" />
                 <span className="text-[11px] font-bold uppercase tracking-widest text-[#0B1F3A]">

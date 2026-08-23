@@ -127,7 +127,7 @@ export default function EcosystemPage() {
               </div>
 
               {/* Exact Verbatim Intro Paragraph */}
-              <div className="space-y-4 text-base text-[#4F5B6A] leading-relaxed mb-12 [text-wrap:pretty]">
+              <div className="space-y-4 text-base text-[#4F5B6A] leading-relaxed mb-8 [text-wrap:pretty]">
                 <p>
                   WISE Support Hub is an educational and empowerment initiative of WISE Education Society, established to provide female students with completely free education, comprehensive academic support, practical skills, and a pathway towards self-earning.
                 </p>
@@ -412,7 +412,7 @@ export default function EcosystemPage() {
               </div>
 
               {/* Heading */}
-              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-white leading-tight mb-12 [text-wrap:balance]">
+              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-white leading-tight mb-8 [text-wrap:balance]">
                 WISE-Teck Incubation Platform
               </h2>
 

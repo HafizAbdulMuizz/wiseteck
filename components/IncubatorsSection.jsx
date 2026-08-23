@@ -84,7 +84,7 @@ export default function IncubatorsSection() {
       <div className="site-container">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-10 lg:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E2E8F0] bg-white mb-6">
             <span className="w-2 h-2 rounded-full bg-[#5F2DEE] shrink-0" />
             <span className="text-[11px] font-bold uppercase tracking-widest text-[#0B1F3A]">

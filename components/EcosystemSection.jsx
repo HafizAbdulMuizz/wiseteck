@@ -59,7 +59,7 @@ export default function EcosystemSection() {
       <div className="site-container">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-14 lg:mb-16">
+        <div className="max-w-3xl mb-10 lg:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E2E8F0] bg-white mb-6 shadow-2xs">
             <span className="w-2 h-2 rounded-full bg-[#5F2DEE] shrink-0" />
             <span className="text-[11px] font-bold uppercase tracking-widest text-[#0B1F3A]">
@@ -168,7 +168,7 @@ export default function EcosystemSection() {
             {/* Institutional note */}
             <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-300">
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#5F2DEE]" />
+                <ShieldCheck className="w-4 h-4 text-[#FFB347]" />
                 <span>Verified End-to-End Progression</span>
               </div>
               <span className="text-slate-400">

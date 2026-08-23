@@ -42,7 +42,11 @@
   }
 }
 
-/* Global Content Container */
+/* ============================================================
+   GLOBAL CONTENT CONTAINER
+   One shared system across all three pages.
+   max-width 1280px · symmetric horizontal padding.
+   ============================================================ */
 .site-container {
   width: 100%;
   max-width: 1280px;
@@ -66,27 +70,52 @@
   }
 }
 
-/* Section standard vertical padding */
+/* ============================================================
+   SECTION VERTICAL RHYTHM — SHARED ACROSS ALL THREE PAGES
+   Target: Premium + Compact + Spacious enough.
+   NOT empty/stretched.
+   Mobile:  3.5rem top + 3.5rem bottom  (56px each)
+   Tablet:  4.5rem top + 4.5rem bottom  (72px each)
+   Desktop: 5.5rem top + 5.5rem bottom  (88px each)
+   ============================================================ */
 .section-padding {
-  padding-top: 5.5rem;
-  padding-bottom: 5.5rem;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
 }
 
 @media (min-width: 768px) {
   .section-padding {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-padding {
-    padding-top: 8.5rem;
-    padding-bottom: 8.5rem;
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
   }
 }
 
-/* Substantial Premium Card System */
+/* ============================================================
+   SECTION HEADER SPACING
+   Standard gap below the eyebrow + h2 + lead paragraph
+   before the main section content starts.
+   ============================================================ */
+.section-header {
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-header {
+    margin-bottom: 3rem;
+  }
+}
+
+/* ============================================================
+   PREMIUM CARD SYSTEM
+   Consistent padding, radius, hover behavior.
+   ============================================================ */
 .wt-card-premium {
   background-color: #FFFFFF;
   border: 1px solid var(--border-color);
